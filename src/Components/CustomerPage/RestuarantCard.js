@@ -10,7 +10,7 @@ import { CardActionArea } from '@mui/material';
 export default function ActionAreaCard() {
   const [data,setData] = useState([])
   const fetchData = async() => {
-      const response = await axios.get('http://127.0.0.1:8000/')
+      const response = await axios.get('http://127.0.0.1:8000/restaurants')
       const res = await response.data
       console.log(res)
       setData(res)
@@ -20,6 +20,7 @@ export default function ActionAreaCard() {
   },[])
   return (
     <div>
+      {data?.length==0?(<h4>No available restuarants!</h4>):(<h4>Please Select from the list of Restaurants</h4>)}
       {data.map((x) => {
         return (
           <Card sx={{ maxWidth: 345 }} key={x?.GST_no}>
@@ -33,7 +34,7 @@ export default function ActionAreaCard() {
               <CardContent>
          
                 <Typography gutterBottom variant="h5" component="div">
-                  {x?.GST_no}
+                  {x?.Name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   {x?.Description}
