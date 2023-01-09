@@ -16,6 +16,8 @@ import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
 import ResetPass from './containers/Resetpass';
 import { Provider } from 'react-redux';
 import store from './store';
+import SignUp from './Components/Pages/signup';
+import Login from './Components/Pages/login';
 
 export default function App() {
   return (
@@ -34,6 +36,8 @@ export default function App() {
           <Route path="/cprofile" element={<CustomerProfile />} />
           <Route path="/dprofile" element={<DeliveryProfile />} />
           <Route path="/reset-password" element={<ResetPass />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
           <Route path="/activate/:uid/:token" element={<Activate />} />
           <Route path="*" element={<InvalidPage />} />

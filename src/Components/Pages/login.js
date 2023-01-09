@@ -1,87 +1,24 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 import Avatar from '@mui/material/Avatar';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+// import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { login } from '../../actions/auth';
+import { FormControlLabel,Checkbox,Link } from '@mui/material';
+
+
 const theme = createTheme();
 
-
-const Login=({login}) =>{
-  const [state, setState] = React.useState({
-    right: false,
-    left : true,
-    bottom : false,
-    top : false,
-  });
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-  const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 400 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, true)}
-      onKeyDown={toggleDrawer(anchor, true)}
-    >
-      <SignIn/>
-    </Box>
-  );
-
-  return (
-    <div>
-      {['Login'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor='right'
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
-  );
-}
-
-function SignIn() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
-
-  //destructuring the data
-  const { email, password } = formData;
-
-  //handles the change in 
-  const onChange=e=>setFormData({...formData, [e.target.name]:e.target.value})
- 
+export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    login(email,password)
-    let email= data.get('email')
     console.log({
       email: data.get('email'),
       password: data.get('password'),
@@ -116,9 +53,6 @@ function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
-              value={email}
-              onChange={e=>onChange(e)}
-
             />
             <TextField
               margin="normal"
@@ -130,8 +64,6 @@ function SignIn() {
               id="password"
               minLength='6'
               autoComplete="current-password"
-              value={password}
-              onChange={e=>onChange(e)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -158,5 +90,3 @@ function SignIn() {
     </ThemeProvider>
   );
 }
-
-export default  connect(null,{login}) (Login)

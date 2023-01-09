@@ -1,8 +1,6 @@
 import React from "react";
-import {Grid,Button,Box} from "@mui/material";
+import {Grid,Button,Box,Link} from "@mui/material";
 import SearchBar from './SearchBar';
-import SignUp from './SignUp';
-import Login from './Login';
 
 export default function LogoSign(){
     return(
@@ -17,16 +15,20 @@ export default function LogoSign(){
               </Grid>
               <Grid item xs={1}>
                 <p>
-                  <Button variant='text' size="small">
-                    <SignUp/>
+                  <Link href="/signup" underline="none">
+                  <Button variant='text' size="medium">
+                    Signup
                   </Button>
+                  </Link>
                 </p>
               </Grid>
               <Grid item xs={1} ml={3}>  
                 <p>
-                  <Button variant='outlined' size='small'>
-                    <Login/>
+                <Link href="/login" underline="none">
+                  <Button variant='outlined' size='medium'>
+                    Login
                   </Button>
+                </Link>
                 </p>
               </Grid>
             </Grid>
