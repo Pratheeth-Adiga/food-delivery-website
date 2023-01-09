@@ -79,13 +79,16 @@ function SignIn() {
  
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    login(email,password)
-    let email= data.get('email')
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    // const data = new FormData(event.currentTarget);
+    // let email = data.get('email')
+    
+    login(email, password)
+   
+  
+    // console.log({
+    //   email: data.get('email'),
+    //   password: data.get('password'),
+    // });
   };
 
   return (
@@ -106,7 +109,7 @@ function SignIn() {
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box onSubmit={(e)=>handleSubmit(e)} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -141,6 +144,7 @@ function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+             
             >
               Log In
             </Button>
