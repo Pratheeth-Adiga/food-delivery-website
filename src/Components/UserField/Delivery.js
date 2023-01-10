@@ -106,7 +106,17 @@ export default function Delivery() {
                   id="address"
                 />
               </Grid>
-
+              <Grid item xs={12}>
+                <TextField
+                  multiline="false"
+                  rows="3"
+                  fullWidth
+                  required
+                  name="city"
+                  label="City"
+                  id="city"
+                />
+              </Grid>
               
               <Grid item xs={12}>
                 <TextField
