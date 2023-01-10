@@ -2,8 +2,10 @@ import React from "react";
 import { Avatar, Box,Grid,Link,Button } from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import stringAvatar from "../UserField/stringAvatar";
+import { logout } from "../../actions/auth";
+import { connect } from "react-redux";
 
-export default function CusTop(){
+const CusTop=({logout})=> {
     return(
         <Box>
             <Grid container>
@@ -14,7 +16,11 @@ export default function CusTop(){
                     <Link href="/cart" underline="none"><ShoppingCartIcon/></Link>   
                 </Grid>
                 <Grid item xs={1} pt={1} pl={1}>
-                    <Button variant="outlined">
+                    <Button
+                        variant="outlined"
+                        onClick={logout}
+                        href='/'
+                    >
                         Logout
                     </Button>
                 </Grid>
@@ -27,3 +33,8 @@ export default function CusTop(){
         </Box>
     )
 }
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+export default connect(mapStateToProps,{logout})(CusTop);
