@@ -7,10 +7,10 @@ export default function OrderCard(){
             <Card>
                 <CardContent>
                     <Grid container>
-                        <Grid item xs={2}>
+                        <Grid item xs={1}>
                             <img src="http://chinabuffetatlantic.com/custom/3.jpg" alt="food" width="65px" height="65px"></img>
                         </Grid>
-                        <Grid item xs={7}>                      
+                        <Grid item xs={10}>                      
                             <Typography variant="h6">Item Name</Typography>
                             <Typography variant="body3">Quantity</Typography>
                         </Grid>

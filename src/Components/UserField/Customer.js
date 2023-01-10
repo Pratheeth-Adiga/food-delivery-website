@@ -125,7 +125,7 @@ export default function Customer() {
               sx={{ mt: 3, mb: 2 }}
               color="success"
             >
-              Edit
+              Save
             </Button>
             <Grid container justifyContent="flex-end">
             </Grid>
