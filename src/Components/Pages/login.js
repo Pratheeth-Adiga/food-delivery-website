@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 // import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -14,10 +14,13 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { FormControlLabel,Checkbox,Link } from '@mui/material';
 import { login } from '../../actions/auth'
 import {connect} from 'react-redux'
+import { Navigate } from 'react-router-dom'
+import { checkAuthenticated, load_user } from '../../actions/auth';
 
 const theme = createTheme();
 
-const Login = ({ login}) => {
+const Login = ({  login, isAuthenticated }) => {
+ 
   const [formData, setFormData] = useState({
     email: '',
     password: '' 
@@ -32,14 +35,17 @@ const onSubmit = e => {
 
     login(email, password);
 };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  if (isAuthenticated) {
+    return <Navigate replace to='/customerpage'/>
+  }
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   console.log({
+  //     email: data.get('email'),
+  //     password: data.get('password'),
+  //   });
+  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -112,4 +118,8 @@ const onSubmit = e => {
     </ThemeProvider>
   );
 }
-export default connect(null, { login })(Login);
+
+const mapStateToProps = state =>({
+    isAuthenticated :state.auth.isAuthenticated
+})
+export default connect(mapStateToProps, {login })(Login);
