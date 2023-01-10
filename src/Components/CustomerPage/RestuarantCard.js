@@ -10,7 +10,7 @@ import { CardActionArea,Grid } from '@mui/material';
 export default function ActionAreaCard() {
   const [data,setData] = useState([])
   const fetchData = async() => {
-      const response = await axios.get('http://127.0.0.1:8000/restaurant')
+      const response = await axios.get('http://127.0.0.1:8000/')
       const res = await response.data
       console.log(res)
       setData(res)

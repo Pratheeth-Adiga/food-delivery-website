@@ -18,11 +18,13 @@ import { Provider } from 'react-redux';
 import store from './store';
 import SignUp from './Components/Pages/signup';
 import Login from './Components/Pages/login';
+import Layout from './hocs/Layout';
 
 export default function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <Layout>
       <Routes>
           <Route path="/" element={<FirstPage/>}/>
           <Route path="/checkout" element={<Checkout />} />
@@ -41,7 +43,8 @@ export default function App() {
           <Route path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
           <Route path="/activate/:uid/:token" element={<Activate />} />
           <Route path="*" element={<InvalidPage />} />
-      </Routes>
+          </Routes>
+          </Layout>
       </BrowserRouter>
     </Provider>
   );

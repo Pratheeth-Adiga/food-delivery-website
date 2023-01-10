@@ -11,7 +11,7 @@ export default function CusTop(){
                     <img src= "https://scalebranding.com/wp-content/uploads/2020/03/fun-food-logo.jpg" width='60px' height='60px' alt='logo'></img> 
                 </Grid>
                 <Grid item xs={1} pt={1.5} pl={10}>
-                    <Link><ShoppingCartIcon/></Link>   
+                    <Link href="/cart" underline="none"><ShoppingCartIcon/></Link>   
                 </Grid>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={1} pt={0.5}>
