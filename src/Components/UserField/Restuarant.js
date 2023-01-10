@@ -87,7 +87,7 @@ export default function Restuarant() {
                 />
               </Grid>
 
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -96,7 +96,7 @@ export default function Restuarant() {
                   name="email"
                   autoComplete="email"
                 />
-              </Grid>
+              </Grid> */}
 
               <Grid item xs={12}>
                 <TextField
