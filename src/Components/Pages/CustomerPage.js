@@ -6,10 +6,10 @@ export default function CustomerPage(){
     return(
         <div>
             <CusTop/>
-            <Grid container pl={2} spacing={1}>
+             <Grid container pl={2} spacing={1}>
                 <Grid item><FoodCards/></Grid>
                 
-            </Grid> 
+            </Grid>  
         </div>
     )
 }

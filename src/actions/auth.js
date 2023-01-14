@@ -1,6 +1,10 @@
 import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
+    SIGNUP_FAIL,
+    SIGNUP_SUCCESS,
+    ACTIVATION_FAIL,
+    ACTIVATION_SUCCESS,
     LOAD_USER_SUCCESS,
     LOAD_USER_FAIL,
     LOGOUT,
@@ -107,6 +111,64 @@ export const login = (email, password) => async dispatch => {
         })
     }
 };
+
+
+
+export const signup = ( email,password, re_password) => async dispatch => {
+    console.log("here")
+   
+
+    
+
+    try {
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        };
+        const body = JSON.stringify({ email,password,re_password});
+        const res = await axios.post('http://localhost:8000/auth/users/', body, config);
+        console.log(res.data)
+        dispatch({
+            type:SIGNUP_SUCCESS,
+            payload: res.data
+        });
+
+      
+    } catch (err) {
+        console.log(err)
+        dispatch({
+
+            type:SIGNUP_FAIL
+        })
+    }
+};
+
+
+
+// export const verify = (uid,token) => async dispatch => {
+//     const config = {
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     };
+
+//     const body = JSON.stringify({ uid,token});
+
+//     try {
+//         await axios.post('http://localhost:8000/auth/users/activation/', body, config);
+//         dispatch({
+//             type:ACTIVATION_SUCCESS,
+           
+//         });
+
+      
+//     } catch (err) {
+//         dispatch({
+//             type:ACTIVATION_FAIL
+//         })
+//     }
+// };
 
 export const reset_password = (email) => async dispatch => {
     const config = {

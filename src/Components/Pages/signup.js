@@ -11,34 +11,57 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { MenuItem } from '@mui/material';
-
+import { signup } from '../../actions/auth';
+import { connect } from 'react-redux';
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 const theme = createTheme();
 
-const options = [
-  {
-    value: '1',
-    label: 'Restuarant',
-  },
-  {
-    value: '0',
-    label: 'Customer',
-  },
-  {
-    value: '3',
-    label: 'Delivery Agent',
-  },
-];
+// const options = [
+//   {
+//     value: '1',
+//     label: 'Restuarant',
+//   },
+//   {
+//     value: '2',
+//     label: 'Customer',
+//   },
+//   {
+//     value: '3',
+//     label: 'Delivery Agent',
+//   },
+// ];
 
-export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+const SignUp = ({ signup, isAuthenticated }) => {
+  
+  const [accountCreated, setAccountCreated] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    re_password: '',
+     name: '',
+     role: ''
+  });
+
+  const { email, password, re_password,} = formData;
+
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = e => {
+    e.preventDefault();
+    if (password === re_password) {
+      console.log("here")
+      signup( email, password, re_password);
+      setAccountCreated(true)
+    }
   };
 
+  if (isAuthenticated) {
+    return <Navigate replace to='/customerpage' />
+  }
+  if (accountCreated) {
+    return <Navigate replace to='/login' />
+  }
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -57,7 +80,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign Up
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
 
             <TextField
               margin="normal"
@@ -67,39 +90,51 @@ export default function SignUp() {
               label="Email Address"
               name="email"
               autoComplete="email"
-              autoFocus/>
+              onChange={e => onChange(e)}
+              value={email}
+              autoFocus />
 
             <TextField
               margin="normal"
               required
               fullWidth
-              name="create password"
+              name="password"
               label=" Create Password"
+              onChange={e => onChange(e)}
               type="password"
               id="password"
-              autoComplete="current-password"/>
+              value={password}
+              autoComplete="current-password"
+            />
 
-            <TextField 
-              margin = "normal"
-              required 
+            <TextField
+              margin="normal"
+              required
               fullWidth
-              name = "Confirm Password"
-              label = "Confirm password"
-              id = "confirmPassword"/>
+              name="re_password"
+              label=" Confirm Password"
+              onChange={e => onChange(e)}
+              type="password"
+              id="re_password"
+              value={re_password}
+              
+            />
 
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+            {/* <Grid container spacing={2}> */}
+            {/* <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="given-name"
+                name="name"
+                required
+                fullWidth
+                id="name"
+                label="Name"
+                onChange={e => onChange(e)}
+                autoFocus
+                value={name}
+              />
+            </Grid>
+            {/* <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -109,9 +144,9 @@ export default function SignUp() {
                   autoComplete="family-name"
                 />
               </Grid>
-            </Grid>
+            </Grid> */}
 
-            <TextField 
+            {/* <TextField 
               margin = "normal"
               required 
               fullWidth
@@ -119,19 +154,25 @@ export default function SignUp() {
               label = "Phone Number"
               id = "phoneNumber"/>
 
-            <p></p>
+            <p></p> */}
               
-            <TextField
-              id="select-role"
+            {/* <TextField
+              
               select
               label="Who are you?"
-              defaultValue="0">
+              defaultValue="2"
+              id="select-role"
+              name='option'
+              value={role}
+              onChange={e => onChange(e)}
+            >
               {options.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>
+                
               ))}
-            </TextField>
+            </TextField> */} */
 
             <Button
               type="submit"
@@ -146,4 +187,9 @@ export default function SignUp() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+const mapStateToProps = state =>({
+  isAuthenticated :state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, {signup })(SignUp);

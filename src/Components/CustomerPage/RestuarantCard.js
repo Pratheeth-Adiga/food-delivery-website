@@ -10,7 +10,7 @@ import { CardActionArea,Grid } from '@mui/material';
 export default function ActionAreaCard() {
   const [data,setData] = useState([])
   const fetchData = async() => {
-      const response = await axios.get('http://127.0.0.1:8000/')
+      const response = await axios.get('http://127.0.0.1:8000/restaurant/')
       const res = await response.data
       console.log(res)
       setData(res)
@@ -19,30 +19,37 @@ export default function ActionAreaCard() {
       fetchData()
   },[])
   return (
-    <Grid>
-      {data.map((x) => {
-        return (
-          <Card sx={{ maxWidth: 345 }} key={x?.GST_no}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="150"
-                image="https://www.sagephotographystudio.com/img/s/v-10/p1875786421-4.jpg"
-                alt="kokre"
-              />
-              <CardContent>
+    <div>
+      <Grid>
+        {data.map((x) => {
+          return (
+            <Card sx={{ maxWidth: 345 }} key={x?.GST_no}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="150"
+                  image="https://www.sagephotographystudio.com/img/s/v-10/p1875786421-4.jpg"
+                  alt="kokre"
+                />
+                <CardContent>
          
-                <Typography gutterBottom variant="h5" component="div">
-                  {x?.Name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {x?.Description}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {x?.Name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {x?.Description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          )
+        }
         )
-      })}
+        } 
       </Grid>
+      
+      <h1>hey</h1>
+    </div>
+      
   );
-}
+};
