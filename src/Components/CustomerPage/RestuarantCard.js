@@ -23,7 +23,7 @@ export default function ActionAreaCard() {
       <Grid>
         {data.map((x) => {
           return (
-            <Card sx={{ maxWidth: 345 }} key={x?.GST_no}>
+            <Card sx={{ maxWidth: 345 }} key={x?.GST_no} onClick={event =>  window.location.href=`/menu/${x.GST_no}`}>
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -48,7 +48,7 @@ export default function ActionAreaCard() {
         } 
       </Grid>
       
-      <h1>hey</h1>
+      {/* <h1>hey</h1> */}
     </div>
       
   );

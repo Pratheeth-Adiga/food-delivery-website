@@ -172,7 +172,7 @@ const SignUp = ({ signup, isAuthenticated }) => {
                 </MenuItem>
                 
               ))}
-            </TextField> */} */
+            </TextField> */} 
 
             <Button
               type="submit"
