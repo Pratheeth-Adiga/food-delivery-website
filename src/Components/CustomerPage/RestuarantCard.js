@@ -20,7 +20,7 @@ export default function ActionAreaCard() {
   },[])
   return (
     <div>
-      <Grid>
+      <Grid item>
         {data.map((x) => {
           return (
             <Card sx={{ maxWidth: 345 }} key={x?.GST_no} onClick={event =>  window.location.href=`/menu/${x.GST_no}`}>
