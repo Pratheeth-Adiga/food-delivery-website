@@ -4,14 +4,22 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import stringAvatar from "../UserField/stringAvatar";
 import { logout } from "../../actions/auth";
 import { connect } from "react-redux";
+import SearchBar from "../FirstPage/SearchBar";
 
 const CusTop=({logout})=> {
     return(
         <Box>
             <Grid container>
-                <Grid item xs={9}>
+                <Grid item xs={4}>
                     <img src= "https://scalebranding.com/wp-content/uploads/2020/03/fun-food-logo.jpg" width='60px' height='60px' alt='logo'></img> 
                 </Grid>
+                <Grid item xs={5}>
+                <div class="search">
+                  <p>
+                    <SearchBar />
+                  </p>
+                </div>
+              </Grid>
                 <Grid item xs={1} pt={2} pl={10}>
                     <Link href="/cart" underline="none"><ShoppingCartIcon/></Link>   
                 </Grid>
