@@ -14,6 +14,7 @@ import CustomerProfile from './Components/Pages/CustomerProfile';
 import MenuEdit from './Components/RestuarantPage/MenuEdit';
 import NewItem from './Components/RestuarantPage/newitem';
 import Activate from './containers/Activate';
+import Report from './Components/Pages/Report';
 import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
 import ResetPass from './containers/Resetpass';
 import { Provider } from 'react-redux';
@@ -50,6 +51,7 @@ export default function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
           <Route path="/activate/:uid/:token" element={<Activate />} />
+          <Route path="/report" element={<Report />} />
           <Route path="*" element={<InvalidPage />} />
           </Routes>
           </Layout>
