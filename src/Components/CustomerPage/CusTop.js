@@ -26,7 +26,7 @@ const CusTop = ({ logout }) => {
                 </div>
               </Grid>
                 <Grid item xs={1} pt={2} pl={10}>
-                    <Link to={`/cart`} underline="none"><ShoppingCartIcon/></Link>   
+                    <Link href="/cart/1"underline="none"><ShoppingCartIcon></ShoppingCartIcon></Link>   
                 </Grid>
                 <Grid item xs={1} pt={1} pl={1}>
                     <Button
@@ -37,7 +37,7 @@ const CusTop = ({ logout }) => {
                         Logout
                     </Button>
                 </Grid>
-                <Grid item xs={1} pt={0.5}>
+                <Grid item xs={1} pt={0.5} >
                     <Link href="/cprofile" underline="none">
                         {User===null?<Avatar {...stringAvatar("Priyanka")}/>:<Avatar {...stringAvatar(User.email)}/>}
                         

@@ -3,7 +3,8 @@ import { Grid,Avatar,Link } from "@mui/material";
 import stringAvatar from "../UserField/stringAvatar";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from 'react-bootstrap/Badge';
-
+import { connect } from "react-redux";
+import { logout } from "../../actions/auth";
  function Top({logout}){
     return(
         <div>

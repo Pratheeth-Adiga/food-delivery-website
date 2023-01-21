@@ -15,8 +15,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddressForm from '../CheckOut/AddressForm';
 import PaymentForm from '../CheckOut/PaymentForm';
 import Review from '../CheckOut/Review';
+import { useState } from 'react';
 
 function Copyright() {
+
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
@@ -32,6 +34,7 @@ function Copyright() {
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 function getStepContent(step) {
+
   switch (step) {
     case 0:
       return <AddressForm />;
@@ -56,7 +59,16 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
+  const [data, setData] = useState({
+    name: '',
+    addr1: '',
+    zipcode: '',
+    country: ''
 
+  });
+  const childToParent = () => {
+    
+  }
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

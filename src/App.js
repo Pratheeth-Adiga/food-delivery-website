@@ -34,7 +34,7 @@ export default function App() {
         <Layout>
       <Routes>
           <Route path="/" element={<FirstPage/>}/>
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/:id" element={<Checkout />} />
           <Route path="/customerpage" element={<CustomerPage />} />
           <Route path="/cart/:id" element={<Cart />} />
           <Route path="/delivery" element={<DeliveryAgent />} />
