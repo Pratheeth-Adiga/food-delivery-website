@@ -21,6 +21,9 @@ export default function CartCard() {
 
     return(
         <Grid pt={1} pl={1} pr={1} component="main">
+            {data.length === 0 ? <h2>Cart is empty :/    
+                <a href="/customerpage">Click here to go back</a>
+            </h2>:
             <Card>
                 {data.map((x) => {
                     return(
@@ -44,6 +47,7 @@ export default function CartCard() {
                     </CardContent>
                 )})}
                 </Card>
+}
             </Grid> 
     )
 }
