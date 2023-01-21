@@ -108,7 +108,7 @@ export default function Customer() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  multiline="false"
+                 
                   rows="3"
                   fullWidth
                   required

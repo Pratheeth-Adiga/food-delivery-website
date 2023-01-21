@@ -19,7 +19,7 @@ export default function Footer(){
             <Grid item xs={4}>
                 <p>Under the Guidence of </p>
                 <p>Dr. Champa. H. N </p>
-                {/* <p>Legal</p> */}
+                <p>Puneeth Sir</p>
                 {/* <p>Legal</p> */}
             </Grid>
         </Grid>

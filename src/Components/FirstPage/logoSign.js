@@ -39,7 +39,7 @@ export default function LogoSign(){
               <Grid item xs={11}>
                 <div class="search">
                   <p>
-                    <SearchBar />
+                    {/* <SearchBar /> */}
                   </p>
                 </div>
               </Grid>

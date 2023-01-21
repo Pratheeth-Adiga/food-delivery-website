@@ -22,8 +22,12 @@ import store from './store';
 import SignUp from './Components/Pages/signup';
 import Login from './Components/Pages/login';
 import Layout from './hocs/Layout';
-
+import { useEffect } from 'react';
+import { load_user } from './actions/auth';
 export default function App() {
+  useEffect(() => { 
+    store.dispatch(load_user())
+  }, []);
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -32,9 +36,9 @@ export default function App() {
           <Route path="/" element={<FirstPage/>}/>
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/customerpage" element={<CustomerPage />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart/:id" element={<Cart />} />
           <Route path="/delivery" element={<DeliveryAgent />} />
-          <Route path="/menu" element={<Menu />} />
+          <Route path="/menu/:resid" element={<Menu />} />
           <Route path="/restuarant" element={<RestaurantPage />} />
           <Route path="/editmenu" element={<RestaurantPage />} />
           <Route path="/rprofile" element={<RestuarantProfile/>} />
