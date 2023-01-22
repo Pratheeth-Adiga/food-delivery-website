@@ -38,12 +38,12 @@ const onSubmit = e => {
 
     login(email, password);
 };
-  
+  const navigate=useNavigate()
 const state = store.getState();
   const User = state.auth.user;
   if (isAuthenticated) {
     console.log("jee")
-    return <Navigate replace to='/role'/>
+    navigate(`/role/${User.id}`)
   }
   // const handleSubmit = (event) => {
   //   event.preventDefault();

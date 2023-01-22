@@ -40,7 +40,7 @@ export default function App() {
         <Layout>
       <Routes>
             <Route path="/" element={<FirstPage />} />
-            <Route path="/role" element={<Role />} />
+            <Route path="/role/:id" element={<Role />} />
             <Route path="/checkout/:id" element={<Checkout />} />
             <Route path="/checkout2/:id" element={<Checkout2 />} />
             <Route path="/checkout3/:id" element={<Checkout3 />} />
@@ -49,7 +49,7 @@ export default function App() {
           <Route path="/cart/:id" element={<Cart />} />
           <Route path="/delivery" element={<DeliveryAgent />} />
           <Route path="/menu/:resid" element={<Menu />} />
-          <Route path="/restaurantpage" element={<RestaurantPage />} />
+          <Route path="/restaurantpage/:id" element={<RestaurantPage />} />
           <Route path="/editmenu" element={<RestaurantPage />} />
           <Route path="/rprofile/:id" element={<RestuarantProfile/>} />
           <Route path="/cprofile/:id" element={<CustomerProfile />} />
