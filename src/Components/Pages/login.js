@@ -13,9 +13,12 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { FormControlLabel,Checkbox,Link } from '@mui/material';
 import { login } from '../../actions/auth'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import {connect} from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import { checkAuthenticated, load_user } from '../../actions/auth';
+import store from '../../store';
 
 const theme = createTheme();
 
@@ -35,8 +38,12 @@ const onSubmit = e => {
 
     login(email, password);
 };
+  
+const state = store.getState();
+  const User = state.auth.user;
   if (isAuthenticated) {
-    return <Navigate replace to='/customerpage'/>
+    console.log("jee")
+    return <Navigate replace to='/role'/>
   }
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -105,6 +112,7 @@ const onSubmit = e => {
             >
               Log In
             </Button>
+            
             <Grid container>
               <Grid item xs>
                 <Link href="http://localhost:3000/reset-password" variant="body2">

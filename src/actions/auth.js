@@ -114,7 +114,7 @@ export const login = (email, password) => async dispatch => {
 
 
 
-export const signup = ( email,password, re_password) => async dispatch => {
+export const signup = ( email,password, re_password,Role) => async dispatch => {
     console.log("here")
    
 
@@ -126,7 +126,7 @@ export const signup = ( email,password, re_password) => async dispatch => {
                 'Content-type': 'application/json'
             }
         };
-        const body = JSON.stringify({ email,password,re_password});
+        const body = JSON.stringify({ email,password,re_password,Role});
         const res = await axios.post('http://localhost:8000/auth/users/', body, config);
         console.log(res.data)
         dispatch({

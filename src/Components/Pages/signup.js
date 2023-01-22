@@ -1,66 +1,59 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
 // import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { MenuItem } from '@mui/material';
-import { signup } from '../../actions/auth';
-import { connect } from 'react-redux';
-import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { MenuItem } from "@mui/material";
+import { signup } from "../../actions/auth";
+import { connect } from "react-redux";
+import { useState,useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import axios from "axios";
 const theme = createTheme();
 
-// const options = [
-//   {
-//     value: '1',
-//     label: 'Restuarant',
-//   },
-//   {
-//     value: '2',
-//     label: 'Customer',
-//   },
-//   {
-//     value: '3',
-//     label: 'Delivery Agent',
-//   },
-// ];
 
 const SignUp = ({ signup, isAuthenticated }) => {
-  
   const [accountCreated, setAccountCreated] = useState(false);
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    re_password: '',
-     name: '',
-     role: ''
+    email: "",
+    password: "",
+    re_password: "",
+
+    Role: 1,
   });
 
-  const { email, password, re_password,} = formData;
+  const { email, password, re_password,Role } = formData;
 
-  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
+    console.log(Role)
     e.preventDefault();
     if (password === re_password) {
-      console.log("here")
-      signup( email, password, re_password);
-      setAccountCreated(true)
+      console.log("here");
+      signup(email, password, re_password,Role);
+      setAccountCreated(true);
     }
   };
-
+  const navigate=useNavigate()
+ 
+  
   if (isAuthenticated) {
-    return <Navigate replace to='/customerpage' />
+    return <Navigate replace to="/customerpage" />;
   }
+
+  
   if (accountCreated) {
-    return <Navigate replace to='/login' />
+    return <Navigate replace to="/login" />
+   
   }
   return (
     <ThemeProvider theme={theme}>
@@ -69,19 +62,18 @@ const SignUp = ({ signup, isAuthenticated }) => {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign Up
           </Typography>
           <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
-
             <TextField
               margin="normal"
               required
@@ -90,9 +82,10 @@ const SignUp = ({ signup, isAuthenticated }) => {
               label="Email Address"
               name="email"
               autoComplete="email"
-              onChange={e => onChange(e)}
+              onChange={(e) => onChange(e)}
               value={email}
-              autoFocus />
+              autoFocus
+            />
 
             <TextField
               margin="normal"
@@ -100,7 +93,7 @@ const SignUp = ({ signup, isAuthenticated }) => {
               fullWidth
               name="password"
               label=" Create Password"
-              onChange={e => onChange(e)}
+              onChange={(e) => onChange(e)}
               type="password"
               id="password"
               value={password}
@@ -113,11 +106,10 @@ const SignUp = ({ signup, isAuthenticated }) => {
               fullWidth
               name="re_password"
               label=" Confirm Password"
-              onChange={e => onChange(e)}
+              onChange={(e) => onChange(e)}
               type="password"
               id="re_password"
               value={re_password}
-              
             />
 
             {/* <Grid container spacing={2}> */}
@@ -155,24 +147,27 @@ const SignUp = ({ signup, isAuthenticated }) => {
               id = "phoneNumber"/>
 
             <p></p> */}
-              
-            {/* <TextField
-              
+
+            <TextField
               select
               label="Who are you?"
               defaultValue="2"
               id="select-role"
-              name='option'
-              value={role}
-              onChange={e => onChange(e)}
+              name="option"
+              onChange={(e) => onChange(e)}
+              value={Role}
+             
             >
-              {options.map((option) => (
+              {/* {options.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>
                 
-              ))}
-            </TextField> */} 
+              ))} */}
+              <MenuItem value={1}>Customer</MenuItem>
+              <MenuItem value={2}>Restaurant</MenuItem>
+             
+            </TextField>
 
             <Button
               type="submit"
@@ -188,8 +183,8 @@ const SignUp = ({ signup, isAuthenticated }) => {
     </ThemeProvider>
   );
 };
-const mapStateToProps = state =>({
-  isAuthenticated :state.auth.isAuthenticated
-})
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
 
-export default connect(mapStateToProps, {signup })(SignUp);
+export default connect(mapStateToProps, { signup })(SignUp)
