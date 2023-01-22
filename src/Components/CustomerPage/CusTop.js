@@ -5,8 +5,13 @@ import stringAvatar from "../UserField/stringAvatar";
 import { logout } from "../../actions/auth";
 import { connect } from "react-redux";
 import SearchBar from "../FirstPage/SearchBar";
+import store from "../../store";
 
-const CusTop=({logout})=> {
+const CusTop = ({ logout }) => {
+    const state = store.getState();
+    const User = state.auth.user
+    console.log(User)
+    
     return(
         <Box>
             <Grid container>
@@ -21,7 +26,7 @@ const CusTop=({logout})=> {
                 </div>
               </Grid>
                 <Grid item xs={1} pt={2} pl={10}>
-                    <Link href="/cart" underline="none"><ShoppingCartIcon/></Link>   
+                    <Link href="/cart/1"underline="none"><ShoppingCartIcon></ShoppingCartIcon></Link>   
                 </Grid>
                 <Grid item xs={1} pt={1} pl={1}>
                     <Button
@@ -32,9 +37,10 @@ const CusTop=({logout})=> {
                         Logout
                     </Button>
                 </Grid>
-                <Grid item xs={1} pt={0.5}>
+                <Grid item xs={1} pt={0.5} >
                     <Link href="/cprofile" underline="none">
-                        <Avatar {...stringAvatar("Priyanka")}/>
+                        {User===null?<Avatar {...stringAvatar("Priyanka")}/>:<Avatar {...stringAvatar(User.email)}/>}
+                        
                     </Link>
                 </Grid>
             </Grid>

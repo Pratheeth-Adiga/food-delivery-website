@@ -1,9 +1,12 @@
 import React from "react";
 import { logout } from "../../actions/auth";
+import { connect } from "react-redux";
 import stringAvatar from "../UserField/stringAvatar";
 import { Avatar, Box, Grid, Link, Button,Typography } from "@mui/material";
-
-export default function CartTop({logout}){
+import store from "../../store";
+function CartTop({ logout }) {
+    const state = store.getState();
+    const User = state.auth.user
     return(
         <div>
             <Grid container>
@@ -23,7 +26,7 @@ export default function CartTop({logout}){
                 </Grid>
                 <Grid item xs={1} pt={1} pl={15}>
                     <Link href="/cprofile" underline="none">
-                        <Avatar {...stringAvatar("Priyanka")}/>
+                    {User===null?<Avatar {...stringAvatar("Priyanka")}/>:<Avatar {...stringAvatar(User.email)}/>}
                     </Link>
                 </Grid>
                 </Grid>
@@ -35,3 +38,5 @@ export default function CartTop({logout}){
         </div>
     )
 }
+
+export default connect(null,{logout})(CartTop);
