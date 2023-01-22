@@ -14,11 +14,11 @@ export default function Role() {
  const data =["Customer","Restaurant"]
   return (
     <div >
-      <Grid container spacing={1} pt={4} pl={5} Spacing={2}>
+      <Grid container spacing={1} pt={4} pl={5}>
           
-              <Grid pr={10}>
+              <Grid item pr={5}>
                   <Card sx={{ maxWidth: 800 }} onClick={event => window.location.href = `/customerpage`}>
-                <CardActionArea>
+                  <CardActionArea>
                   <CardMedia
                     component="img"
                     height="250"
@@ -26,7 +26,6 @@ export default function Role() {
                     alt="restuarant"
                   />
                   <CardContent>
-          
                     <Typography gutterBottom variant="h5" component="div">
                       Customer
                     </Typography>
@@ -34,30 +33,30 @@ export default function Role() {
                       Browse through all our delicious menu
                     </Typography>
                   </CardContent>
-                </CardActionArea>
+                  </CardActionArea>
                   </Card>
+                </Grid>
+                 
+                <Grid item pr={5}>  
                   <Card sx={{ maxWidth: 800 }} onClick={event => window.location.href = `/restaurantpage`}>
-                <CardActionArea>
+                  <CardActionArea>
                   <CardMedia
                     component="img"
                     height="250"
                     image="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX32422444.jpg"
                     alt="restuarant"
                   />
-                  <CardContent>
-          
+                  <CardContent>         
                     <Typography gutterBottom variant="h5" component="div">
                       Restaurant
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                                  Post about your restaurants delicacies
-                                  
+                      Post about your restaurants delicacies                                 
                     </Typography>
                   </CardContent>
                 </CardActionArea>
                 </Card>
-                </Grid>
-          
+              </Grid>       
         </Grid>
       
       {/* <h1>hey</h1> */}
