@@ -1,3 +1,5 @@
+
+
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
@@ -12,10 +14,9 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AddressForm from '../CheckOut/AddressForm';
-import PaymentForm from '../CheckOut/PaymentForm';
-import Review from '../CheckOut/Review';
+import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function Copyright() {
 
@@ -33,42 +34,20 @@ function Copyright() {
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
-function getStepContent(step) {
 
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
 
 const theme = createTheme();
 
-export default function Checkout1() {
-  const [activeStep, setActiveStep] = React.useState(0);
+export default function Checkout4() {
+    const { id } = useParams();
 
-  const handleNext = () => {
-    setActiveStep(activeStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep(activeStep - 1);
-  };
-  const [data, setData] = useState({
-    name: '',
-    addr1: '',
-    zipcode: '',
-    country: ''
-
-  });
-  const childToParent = () => {
+  const navigate=useNavigate()
+    const handleNext = () => {
+        axios.delete(`http://127.0.0.1:8000/cartdelete/${id}/`)
+        
+      navigate(`/customerpage`)
+    };
     
-  }
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -92,14 +71,7 @@ export default function Checkout1() {
           <Typography component="h1" variant="h4" align="center">
             Checkout
           </Typography>
-          <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-          {activeStep === steps.length ? (
+         
             <React.Fragment>
               <Typography variant="h5" gutterBottom>
                 Thank you for your order.
@@ -110,26 +82,19 @@ export default function Checkout1() {
                 arrived at your doorstep.
               </Typography>
             </React.Fragment>
-          ) : (
-            <React.Fragment>
-              {getStepContent(activeStep)}
+          
+            
               <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                {activeStep !== 0 && (
-                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                    Back
-                  </Button>
-                )}
-
                 <Button
                   variant="contained"
                   onClick={handleNext}
                   sx={{ mt: 3, ml: 1 }}
                 >
-                  {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                  Go back Home
                 </Button>
               </Box>
-            </React.Fragment>
-          )}
+            
+        
         </Paper>
         <Copyright />
       </Container>

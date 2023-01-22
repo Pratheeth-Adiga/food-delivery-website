@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {BrowserRouter,Route,Routes} from 'react-router-dom';
-import Checkout from './Components/Pages/CheckOut';
+import Checkout2 from './Components/CheckOut/Addr';
 import FirstPage from './Components/Pages/FirstPage';
 import CustomerPage from './Components/Pages/CustomerPage';
 import Cart from './Components/Pages/Cart';
@@ -24,6 +24,9 @@ import Login from './Components/Pages/login';
 import Layout from './hocs/Layout';
 import { useEffect } from 'react';
 import { load_user } from './actions/auth';
+import Checkout from './Components/Pages/CheckOutFinal';
+import Checkout3 from './Components/CheckOut/Revie';
+import Checkout4 from './Components/CheckOut/final';
 export default function App() {
   useEffect(() => { 
     store.dispatch(load_user())
@@ -34,7 +37,10 @@ export default function App() {
         <Layout>
       <Routes>
           <Route path="/" element={<FirstPage/>}/>
-          <Route path="/checkout/:id" element={<Checkout />} />
+            <Route path="/checkout/:id" element={<Checkout />} />
+            <Route path="/checkout2/:id" element={<Checkout2 />} />
+            <Route path="/checkout3/:id" element={<Checkout3 />} />
+            <Route path="/checkoutfinal/:id" element={<Checkout4/>} />
           <Route path="/customerpage" element={<CustomerPage />} />
           <Route path="/cart/:id" element={<Cart />} />
           <Route path="/delivery" element={<DeliveryAgent />} />

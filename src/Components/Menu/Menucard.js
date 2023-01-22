@@ -47,6 +47,7 @@ function MenuCard({ match, user }) {
     const post_data = {
       Food_Id: id,
       User_Id: User.id,
+      Quantity: 1
     };
     axios.post("http://127.0.0.1:8000/cart/", post_data);
     navigate(`/cart/${User.id}`);

@@ -19,6 +19,15 @@ export default function CartCard() {
     fetchData();
   }, []);
 
+  const [data1, setData1] = useState([...data])
+  
+  const change = (e, id) => {
+    const { value } = e.target
+    setData1((x) =>
+      x?.map((list, index) =>
+      index===id?{...list,x:value}:list)
+    )
+  }
   const [qty, setQty] = useState(1);
   const deleteOne = (foodid) => {
     axios.delete(`http://127.0.0.1:8000/cartdeleteItem/${id}/${foodid}/`);
@@ -46,8 +55,8 @@ export default function CartCard() {
               <h5>Quantity</h5>
             </Grid>
           </Grid>
-          <Card>
-            {data.map((x) => {
+          <Card >
+            {data.map((x,i) => {
               return (
                 <CardContent>
                   <Grid container>
@@ -64,16 +73,27 @@ export default function CartCard() {
                       <Typography variant="body3">{x?.Tag}</Typography>
                     </Grid>
                     <Grid item xs={1} pt={3} pl={0.01}>
-                      {x?.Price * qty}
+                      {x?.Price }
                     </Grid>
-                    <Grid item xs={1} pt={2} pl={10}>
+                    {/* <Grid item xs={1} pt={2} pl={10}>
+                   
                       <input
                         type="text"
-                        onInput={(e) => setQty(e.target.value)}
+                        onChange={(e) => change(e,i)}
+                        
+                        name="qty"
+                        value={x.Quantity} 
                       />
                     </Grid>
                     <Grid item xs={1}></Grid>
 
+                    <Button
+                      variant="contained"
+                      color="success"
+                      onClick={() => deleteOne(x?.id)}
+                    >
+                      Save
+                    </Button> */}
                     <Button
                       variant="contained"
                       color="error"
