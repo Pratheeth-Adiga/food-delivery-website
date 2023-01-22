@@ -69,7 +69,8 @@ export default function Checkout3() {
             User_Id: id,
             Price:text
           };
-          axios.post("http://127.0.0.1:8000/saveorder/", post_data);
+        axios.post("http://127.0.0.1:8000/saveorder/", post_data);
+        
     navigate(`/checkoutfinal/${id}`);
   };
   const handleBack = () => {
