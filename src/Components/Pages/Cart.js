@@ -3,6 +3,7 @@ import CartCard from "../Cart/CartCard";
 import CartTop from "../Cart/CartTop";
 import CartEnd from "../Cart/CartEnd";
 import axios from "axios";
+import CusTop from "../CustomerPage/CusTop";
 export default function Cart() {
     // const { id } = useParams();
     // console.log(id)
@@ -22,7 +23,7 @@ export default function Cart() {
     
     return(
         <div>
-        <CartTop/>
+        <CusTop/>
         <CartCard/>
         
         <CartEnd/>

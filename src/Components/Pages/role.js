@@ -30,8 +30,9 @@ export default function Role() {
   const clickHandler = () => {
     if (data.length === 0)
     {
-      navigate(`/customerpage`)
-      }
+      navigate(`/restricted`)
+    }
+    else
                 navigate(`/restaurantpage/${data[0]?.GST_no}`)
       
     };
@@ -45,7 +46,7 @@ export default function Role() {
         <Paper elevation={5}>
           <Card
             sx={{ maxWidth: 800 }}
-            onClick={(event) => (window.location.href = `/customerpage`)}
+            onClick={(event) => (window.location.href = `/album`)}
           >
             <CardActionArea>
               <CardMedia

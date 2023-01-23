@@ -31,7 +31,15 @@ import Role from './Components/Pages/role';
 import NewCartCard from './Components/Cart/Newcartcard';
 import RestuarantOrderItems from './Components/Pages/OrderItems';
 import Album from './Components/Pages/Album';
+
+import NotRegistered from './Components/Pages/NotRegistered';
 import UserProfile from './Components/Pages/UserProfile';
+import MyOrders from './Components/Pages/MyOrders';
+import Aboutus from './Components/Pages/AboutUs';
+
+
+
+
 
 export default function App() {
   useEffect(() => { 
@@ -57,13 +65,18 @@ export default function App() {
             <Route path="/restaurantorders/:id/:oid" element={<RestuarantOrderItems />} />
           <Route path="/editmenu" element={<RestaurantPage />} />
           <Route path="/rprofile/:id" element={<RestuarantProfile/>} />
-          <Route path="/cprofile/:id" element={<CustomerProfile />} />
+            <Route path="/cprofile/:id" element={<UserProfile />} />
+            <Route path="/myorders/:id" element={<MyOrders />} />
+            <Route path="/savecprofile/:id" element={<CustomerProfile/>} />
           <Route path="/dprofile" element={<DeliveryProfile />} />
           <Route path="/newitem" element={<NewItem />} />
-          <Route path="/menuedit" element={<MenuEdit />} />
+            <Route path="/menuedit" element={<MenuEdit />} />
+            <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/reset-password" element={<ResetPass />} />
             <Route path="/login" element={<Login />} />
             <Route path="/album" element={<Album />} />
+          
+            <Route path="/restricted" element={<NotRegistered />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
           <Route path="/activate/:uid/:token" element={<Activate />} />
