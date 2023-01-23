@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Card, CardContent, Typography, Button } from "@mui/material";
+import { Grid, Card, CardContent, Typography, Button,Paper } from "@mui/material";
 import { useParams } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useState, useEffect } from "react";
@@ -61,26 +61,27 @@ function MenuCard({ match, user }) {
         <div>
           <h4>The Menu Card:</h4>
           <Grid container>
-            <Grid item xs={7} pl={10}>
+            <Grid item xs={7} pl={11}>
               <h5>Menu Item</h5>
             </Grid>
-            <Grid item xs={1} pl={19}>
+            <Grid item xs={1} pl={16}>
               <h5>Price</h5>
             </Grid>
-            <Grid item xs={1} pl={23}>
-                    <h5>Quantity</h5>
-                                </Grid>
+            {/* <Grid item xs={1} pl={20}>
+              <h5>Quantity</h5>
+            </Grid> */}
           </Grid>
           {data.map((x) => (
+          <Paper elevation={4}>
             <Card key={x?.id}>
               <CardContent>
-                <Grid container>
+                <Grid container spacing={1}>
                   <Grid item xs={1}>
                     <img
                       src="http://chinabuffetatlantic.com/custom/3.jpg"
                       alt="food"
-                      width="65px"
-                      height="65px"
+                      width="75px"
+                      height="75px"
                     ></img>
                   </Grid>
                   <Grid item xs={7}>
@@ -89,10 +90,8 @@ function MenuCard({ match, user }) {
                   </Grid>
                   <Grid item xs={1} pt={2} pl={6}>
                     {x?.Price}
-                  </Grid>
-                 
-                  
-                          <Grid item  pt={7} >
+                  </Grid>  
+                  <Grid item xs={2} pt={7} >
                     <Button
                       variant="contained"
                       color="success"
@@ -104,6 +103,7 @@ function MenuCard({ match, user }) {
                 </Grid>
               </CardContent>
             </Card>
+            </Paper>
           ))}
         </div>
       )}

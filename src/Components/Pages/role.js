@@ -5,7 +5,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, Grid } from "@mui/material";
+import { CardActionArea, Grid,Paper } from "@mui/material";
 import store from "../../store";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -39,8 +39,10 @@ export default function Role() {
 
   return (
     <div>
-      <Grid container spacing={1} pt={4} pl={5}>
-        <Grid item pr={5}>
+      <Grid container spacing={1} pt={15} pl={5} justifyContent="center" alignItems="center" direction="row">
+
+        <Grid item xs={3} pr={5}>
+        <Paper elevation={5}>
           <Card
             sx={{ maxWidth: 800 }}
             onClick={(event) => (window.location.href = `/customerpage`)}
@@ -62,9 +64,11 @@ export default function Role() {
               </CardContent>
             </CardActionArea>
           </Card>
+          </Paper>
         </Grid>
 
-        <Grid item pr={5}>
+        <Grid item xs={3} pr={5}>
+        <Paper elevation={5}>
           <Card sx={{ maxWidth: 800 }} onClick={clickHandler}>
             <CardActionArea>
               <CardMedia
@@ -83,6 +87,7 @@ export default function Role() {
               </CardContent>
             </CardActionArea>
           </Card>
+          </Paper>
         </Grid>
       </Grid>
 
