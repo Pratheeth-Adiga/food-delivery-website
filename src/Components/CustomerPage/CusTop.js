@@ -36,7 +36,7 @@ const CusTop = ({ logout }) => {
                 </div>
               </Grid>
                 <Grid item xs={1} pt={2} pl={10}>
-                    <Link href="/cart/1"underline="none"><ShoppingCartIcon></ShoppingCartIcon></Link>   
+                    <Link href="/cart/1"underline="none"><ShoppingCartIcon/></Link>   
                 </Grid>
                 <Grid item xs={1} pt={1} pl={1}>
                     <Button
