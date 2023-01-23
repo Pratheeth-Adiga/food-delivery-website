@@ -31,15 +31,15 @@ import Role from './Components/Pages/role';
 import NewCartCard from './Components/Cart/Newcartcard';
 import RestuarantOrderItems from './Components/Pages/OrderItems';
 import Album from './Components/Pages/Album';
-<<<<<<< HEAD
+
 import NotRegistered from './Components/Pages/NotRegistered';
 import UserProfile from './Components/Pages/UserProfile';
 import MyOrders from './Components/Pages/MyOrders';
 import Aboutus from './Components/Pages/AboutUs';
 
-=======
-import UserProfile from './Components/Pages/UserProfile';
->>>>>>> 4f47ef099396d9511d9b5288fa096d2c21c5873e
+
+
+
 
 export default function App() {
   useEffect(() => { 
