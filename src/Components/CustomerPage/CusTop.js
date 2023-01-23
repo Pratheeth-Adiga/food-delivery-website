@@ -6,11 +6,21 @@ import { logout } from "../../actions/auth";
 import { connect } from "react-redux";
 import SearchBar from "../FirstPage/SearchBar";
 import store from "../../store";
+import { useNavigate } from "react-router-dom";
 
 const CusTop = ({ logout }) => {
     const state = store.getState();
     const User = state.auth.user
     console.log(User)
+    const navigate = useNavigate()
+    const navigateto = () => {
+        
+        if (User === null)
+            navigate(`/cprofile/1`)
+        else
+            navigate(`/cprofile/${User.id}`)
+            
+    }
     
     return(
         <Box>
@@ -38,7 +48,7 @@ const CusTop = ({ logout }) => {
                     </Button>
                 </Grid>
                 <Grid item xs={1} pt={0.5} >
-                    <Link href="/cprofile" underline="none">
+                    <Link underline="none" onClick={navigateto}>
                         {User===null?<Avatar {...stringAvatar("Priyanka")}/>:<Avatar {...stringAvatar(User.email)}/>}
                         
                     </Link>

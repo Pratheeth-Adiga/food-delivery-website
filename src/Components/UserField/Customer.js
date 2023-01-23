@@ -1,24 +1,32 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
         Food Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -26,13 +34,36 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Customer() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const navigate = useNavigate()
+  const { id } = useParams();
+  const [formData, setFormData] = useState({
+    Name: "",
+    Username: "",
+    Mobile: "",
+    Addr: "",
+
+  });
+
+  const { Name, Username, Mobile, Addr } = formData;
+
+  const onChange = (e) => {
+    console.log("heloooo");
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const post_data = {
+      Addr: Addr,
+      User_Id: id,
+      Username: Username,
+      Mobile: Mobile,
+      Name: Name,
+    };
+    axios.delete(`http://127.0.0.1:8000/deletedupprofile/${id}/`)
+    axios.post(`http://127.0.0.1:8000/postcprofile/${id}/`, post_data);
+    navigate(`/cprofile/${id}`)
+    
   };
 
   return (
@@ -42,31 +73,49 @@ export default function Customer() {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            D
-          </Avatar>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>F</Avatar>
           <Typography component="h1" variant="h5">
-            Username
+            Fill in your profile details
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={onSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+             
+              <Grid item xs={12}>
                 <TextField
-                  autoComplete="given-name"
-                  name="firstName"
+                  margin="normal"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="Name"
+                  label="Name"
+                  name="Name"
+                  autoComplete="Name"
                   autoFocus
+                  onChange={e => onChange(e)}
+                  value={Name}
+                  type='Name'
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="Username"
+                  label="Username"
+                  name="Username"
+                  autoComplete="Username"
+                  autoFocus
+                  onChange={e => onChange(e)}
+                  value={Username}
+                  type='Username'
+                />
+              </Grid>
+              {/* <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -75,7 +124,7 @@ export default function Customer() {
                   name="lastName"
                   autoComplete="family-name"
                 />
-              </Grid>
+              </Grid> */}
               {/* <Grid item xs={12}>
                 <TextField
                   required
@@ -88,33 +137,33 @@ export default function Customer() {
               </Grid> */}
               <Grid item xs={12}>
                 <TextField
-                  required
-                  fullWidth
-                  id="phone"
-                  label="Phone Number"
-                  name="phone"
+                   margin="normal"
+                   required
+                   fullWidth
+                   id="Mobile"
+                   label="Mobile"
+                   name="Mobile"
+                   autoComplete="Mobile"
+                   autoFocus
+                   onChange={e => onChange(e)}
+                   value={Mobile}
+                   type='Mobile'
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  multiline="true"
-                  rows="3"
-                  fullWidth
-                  required
-                  name="address"
-                  label="Address"
-                  id="address"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                 
-                  rows="3"
-                  fullWidth
-                  required
-                  name="city"
-                  label="City"
-                  id="city"
+                  multiline
+                   margin="normal"
+                   required
+                   fullWidth
+                   id="Addr"
+                   label="Address"
+                   name="Addr"
+                   autoComplete="Addr"
+                   autoFocus
+                   onChange={e => onChange(e)}
+                   value={Addr}
+                   type='Addr'
                 />
               </Grid>
             </Grid>
@@ -127,8 +176,7 @@ export default function Customer() {
             >
               Save
             </Button>
-            <Grid container justifyContent="flex-end">
-            </Grid>
+            <Grid container justifyContent="flex-end"></Grid>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />

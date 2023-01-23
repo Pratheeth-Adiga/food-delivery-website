@@ -15,13 +15,16 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import CusTop from '../CustomerPage/CusTop';
+import store from '../../store';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Foody Web
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -34,17 +37,21 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const theme = createTheme();
 
 export default function Album() {
+    const state=store.getState()
+  const [data,setData] = useState([])
+  const fetchData = async() => {
+      const response = await axios.get('http://127.0.0.1:8000/restaurant/')
+      const res = await response.data
+      console.log(res)
+      setData(res)
+  }
+  useEffect(() => {
+      fetchData()
+  },[])
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <CusTop/>
       <main>
         {/* Hero unit */}
         <Box
@@ -62,14 +69,14 @@ export default function Album() {
               color="text.primary"
               gutterBottom
             >
-              Album layout
+              Browse through our Restaurants
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
               Something short and leading about the collection below—its contents,
               the creator, etc. Make it short and sweet, but not too short so folks
               don&apos;t simply skip over it entirely.
             </Typography>
-            <Stack
+            {/* <Stack
               sx={{ pt: 4 }}
               direction="row"
               spacing={2}
@@ -77,39 +84,38 @@ export default function Album() {
             >
               <Button variant="contained">Main call to action</Button>
               <Button variant="outlined">Secondary action</Button>
-            </Stack>
+            </Stack> */}
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {data.map((x) => (
+              <Grid item key={x?.GST_no} xs={12} sm={6} md={4}>
                 <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                        sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} onClick={event => window.location.href = `/menu/${x.GST_no}`}
                 >
                   <CardMedia
                     component="img"
                     sx={{
                       // 16:9
-                      pt: '56.25%',
+                      pt: '8.25%',
                     }}
-                    image="https://source.unsplash.com/random"
+                    image="https://cdn.vox-cdn.com/thumbor/p-5xkpqxJTIjMaPSa8S-Ps2c_xo=/0x0:5996x4003/920x690/filters:focal(1003x1633:1961x2591):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/59732085/2021_03_23_Merois_008.12.jpg"
                     alt="random"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      {x?.Name}
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
+                      {x?.Description}
                     </Typography>
                   </CardContent>
-                  <CardActions>
+                  {/* <CardActions>
                     <Button size="small">View</Button>
                     <Button size="small">Edit</Button>
-                  </CardActions>
+                  </CardActions> */}
                 </Card>
               </Grid>
             ))}
@@ -118,16 +124,16 @@ export default function Album() {
       </main>
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
+        {/* <Typography variant="h6" align="center" gutterBottom>
           Footer
-        </Typography>
+        </Typography> */}
         <Typography
           variant="subtitle1"
           align="center"
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          Contact us at : foodyweb050@gmail.com
         </Typography>
         <Copyright />
       </Box>

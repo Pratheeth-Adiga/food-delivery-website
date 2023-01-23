@@ -46,7 +46,7 @@ export default function Checkout4() {
     const handleNext = () => {
         axios.delete(`http://127.0.0.1:8000/cartdelete/${id}/`)
 
-      navigate(`/customerpage`)
+      navigate(`/album`)
     };
     
   return (
