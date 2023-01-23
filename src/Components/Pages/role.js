@@ -27,10 +27,15 @@ export default function Role() {
     
   }, []);
     const navigate = useNavigate()
-    const clickHandler = () => {
+  const clickHandler = () => {
+    if (data.length === 0)
+    {
+      navigate(`/customerpage`)
+      }
                 navigate(`/restaurantpage/${data[0]?.GST_no}`)
       
-  };
+    };
+  
 
   return (
     <div>
