@@ -4,12 +4,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function OrderCard() {
-  const { id } = useParams();
+export default function Orders() {
+  const { id,fid } = useParams();
 
   const [data, setData] = useState([]);
   const fetchData = async () => {
-    const response = await axios.get(`http://127.0.0.1:8000/restOrder/${id}/`);
+    const response = await axios.get(`http://127.0.0.1:8000/restItems/${id}/`);
     const res = await response.data;
     console.log(res);
     setData(res);
@@ -19,23 +19,21 @@ export default function OrderCard() {
     console.log(typeof data);
   }, []);
     const navigate =useNavigate()
-    const checkItems = (fid) => {
-      navigate(`/restaurantorders/${id}/`)
-  }
+   
   return (
     <div>
       {data.length === 0 ? (
-        <h4>No Menu available at the moment</h4>
+        <h4>Nothing in Order</h4>
       ) : (
         <div>
-          <h4>The Menu Card:</h4>
+          <h4>The Order Items:</h4>
           <Card>
             {data.map((x) => (
-              <CardContent key={x?.Order_Id}>
+              <CardContent >
                 <Grid container>
                         <Grid item xs={1}>
                             <h3>
-                                {x?.Order_Id}
+                                {x?.Name}
                             </h3>
                     <img
                       src="http://chinabuffetatlantic.com/custom/3.jpg"
@@ -45,14 +43,14 @@ export default function OrderCard() {
                     ></img>
                   </Grid>
                   <Grid item xs={10}>
-                            <Typography variant="h6">{ x?.Name}</Typography>
-                    <Typography variant="body3">Quantity</Typography>
+                            <Typography variant="h6"></Typography>
+                    
                   </Grid>
-                  <Grid item justifyContent="center" pt={2}>
+                  {/* <Grid item justifyContent="center" pt={2}>
                     <Button variant="contained" color="success"  onClick={()=>checkItems(x?.Food_Id)}>
                       Check Order
                     </Button>
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </CardContent>
             ))}

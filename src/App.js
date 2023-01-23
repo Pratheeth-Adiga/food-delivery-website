@@ -29,6 +29,7 @@ import Checkout3 from './Components/CheckOut/Revie';
 import Checkout4 from './Components/CheckOut/final';
 import Role from './Components/Pages/role';
 import NewCartCard from './Components/Cart/Newcartcard';
+import RestuarantOrderItems from './Components/Pages/OrderItems';
 
 export default function App() {
   useEffect(() => { 
@@ -49,7 +50,8 @@ export default function App() {
           <Route path="/cart/:id" element={<Cart />} />
           <Route path="/delivery" element={<DeliveryAgent />} />
           <Route path="/menu/:resid" element={<Menu />} />
-          <Route path="/restaurantpage/:id" element={<RestaurantPage />} />
+            <Route path="/restaurantpage/:id" element={<RestaurantPage />} />
+            <Route path="/restaurantorders/:id/" element={<RestuarantOrderItems />} />
           <Route path="/editmenu" element={<RestaurantPage />} />
           <Route path="/rprofile/:id" element={<RestuarantProfile/>} />
           <Route path="/cprofile/:id" element={<CustomerProfile />} />
