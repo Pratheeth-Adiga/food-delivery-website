@@ -29,6 +29,8 @@ import Checkout3 from './Components/CheckOut/Revie';
 import Checkout4 from './Components/CheckOut/final';
 import Role from './Components/Pages/role';
 import NewCartCard from './Components/Cart/Newcartcard';
+import UserProfile from './Components/Pages/UserProfile';
+import RestuarantOrderItems from './Components/Pages/OrderItems'
 
 
 export default function App() {
@@ -40,18 +42,18 @@ export default function App() {
       <BrowserRouter>
         <Layout>
       <Routes>
-            <Route path="/" element={<FirstPage />} />
-            <Route path="/role/:id" element={<Role />} />
-            <Route path="/checkout/:id" element={<Checkout />} />
-            <Route path="/checkout2/:id" element={<Checkout2 />} />
-            <Route path="/checkout3/:id" element={<Checkout3 />} />
-            <Route path="/checkoutfinal/:id" element={<Checkout4/>} />
+          <Route path="/" element={<FirstPage />} />
+          <Route path="/role/:id" element={<Role />} />
+          <Route path="/checkout/:id" element={<Checkout />} />
+          <Route path="/checkout2/:id" element={<Checkout2 />} />
+          <Route path="/checkout3/:id" element={<Checkout3 />} />
+          <Route path="/checkoutfinal/:id" element={<Checkout4/>} />
           <Route path="/customerpage" element={<CustomerPage />} />
           <Route path="/cart/:id" element={<Cart />} />
           <Route path="/delivery" element={<DeliveryAgent />} />
           <Route path="/menu/:resid" element={<Menu />} />
-            <Route path="/restaurantpage/:id" element={<RestaurantPage />} />
-            <Route path="/restaurantorders/:id/" element={<RestuarantOrderItems />} />
+          <Route path="/restaurantpage/:id" element={<RestaurantPage />} />
+          <Route path="/restaurantorders/:id/" element={<RestuarantOrderItems />} />
           <Route path="/editmenu" element={<RestaurantPage />} />
           <Route path="/rprofile/:id" element={<RestuarantProfile/>} />
           <Route path="/cprofile/:id" element={<CustomerProfile />} />
