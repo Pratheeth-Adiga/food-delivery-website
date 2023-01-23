@@ -10,7 +10,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Foody WEb
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -24,16 +24,16 @@ function Footer(props) {
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
       <Container maxWidth="lg">
-        <Typography variant="h6" align="center" gutterBottom>
+        {/* <Typography variant="h6" align="center" gutterBottom>
           {title}
-        </Typography>
+        </Typography> */}
         <Typography
           variant="subtitle1"
           align="center"
           color="text.secondary"
           component="p"
         >
-          {description}
+          Visit us at
         </Typography>
         <Copyright />
       </Container>

@@ -60,7 +60,7 @@ export default function App() {
           <Route path="/customerpage" element={<CustomerPage />} />
           <Route path="/cart/:id" element={<Cart />} />
           <Route path="/delivery" element={<DeliveryAgent />} />
-          <Route path="/menu/:resid" element={<Menu />} />
+          <Route path="/blog/:resid" element={<Menu />} />
             <Route path="/restaurantpage/:id" element={<RestaurantPage />} />
             <Route path="/restaurantorders/:id" element={<RestuarantOrderItems />} />
             <Route path="/restaurantorders/:id/:oid" element={<RestuarantOrderItems />} />
@@ -79,10 +79,10 @@ export default function App() {
           
             <Route path="/restricted" element={<NotRegistered />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/menu/:resid" element={<Blog />} />
           <Route path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
           <Route path="/activate/:uid/:token" element={<Activate />} />
-          {/* <Route path="/testing" element={<UserProfile />} /> */}
+          <Route path="/testing/:id" element={<NewCartCard />} />
           <Route path="/report" element={<Report />} />
           <Route path="*" element={<InvalidPage />} />
           </Routes>

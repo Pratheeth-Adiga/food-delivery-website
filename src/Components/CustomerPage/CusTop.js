@@ -26,7 +26,9 @@ const CusTop = ({ logout }) => {
         <Box>
             <Grid container>
                 <Grid item xs={4}>
+                    <Link href="/album">
                     <img src= "https://scalebranding.com/wp-content/uploads/2020/03/fun-food-logo.jpg" width='60px' height='60px' alt='logo'></img> 
+                    </Link>
                 </Grid>
                 <Grid item xs={5}>
                 <div class="search">

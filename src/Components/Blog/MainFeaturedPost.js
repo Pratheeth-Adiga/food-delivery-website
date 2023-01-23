@@ -49,9 +49,9 @@ function MainFeaturedPost(props) {
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#">
-              {post.linkText}
-            </Link>
+            <Typography variant="h7" color="inherit" paragraph>
+              Manager: {post.manager}
+            </Typography>
           </Box>
         </Grid>
       </Grid>

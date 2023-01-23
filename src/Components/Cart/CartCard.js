@@ -19,15 +19,15 @@ export default function CartCard() {
     fetchData();
   }, []);
 
-  const [data1, setData1] = useState([...data])
+  // const [data1, setData1] = useState([...data])
   
-  const change = (e, id) => {
-    const { value } = e.target
-    setData1((x) =>
-      x?.map((list, index) =>
-      index===id?{...list,x:value}:list)
-    )
-  }
+  // const change = (e, id) => {
+  //   const { value } = e.target
+  //   setData1((x) =>
+  //     x?.map((list, index) =>
+  //     index===id?{...list,x:value}:list)
+  //   )
+  // }
   const [qty, setQty] = useState(1);
   const deleteOne = (foodid) => {
     axios.delete(`http://127.0.0.1:8000/cartdeleteItem/${id}/${foodid}/`);
@@ -51,9 +51,7 @@ export default function CartCard() {
             <Grid item xs={1} pl={14}>
               <h5>Price</h5>
             </Grid>
-            <Grid item xs={1} pl={23}>
-              <h5>Quantity</h5>
-            </Grid>
+           
           </Grid>
           <Card >
             {data.map((x,i) => {
