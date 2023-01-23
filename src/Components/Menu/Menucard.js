@@ -89,7 +89,7 @@ function MenuCard({ match, user }) {
                     <Typography variant="body3">{x?.Tag} </Typography>
                   </Grid>
                   <Grid item xs={1} pt={2} pl={6}>
-                    {x?.Price}
+                    Rs. {x?.Price}
                   </Grid>  
                   <Grid item xs={2} pt={7} >
                     <Button

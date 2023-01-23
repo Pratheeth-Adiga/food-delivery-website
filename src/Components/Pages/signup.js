@@ -26,20 +26,20 @@ const SignUp = ({ signup, isAuthenticated }) => {
     password: "",
     re_password: "",
 
-    Role: 1,
+  
   });
 
-  const { email, password, re_password,Role } = formData;
+  const { email, password, re_password} = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
-    console.log(Role)
+    
     e.preventDefault();
     if (password === re_password) {
       console.log("here");
-      signup(email, password, re_password,Role);
+      signup(email, password, re_password);
       setAccountCreated(true);
     }
   };
@@ -147,27 +147,6 @@ const SignUp = ({ signup, isAuthenticated }) => {
               id = "phoneNumber"/>
 
             <p></p> */}
-
-            <TextField
-              select
-              label="Who are you?"
-              defaultValue="2"
-              id="select-role"
-              name="option"
-              onChange={(e) => onChange(e)}
-              value={Role}
-             
-            >
-              {/* {options.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-                
-              ))} */}
-              <MenuItem value={1}>Customer</MenuItem>
-              <MenuItem value={2}>Restaurant</MenuItem>
-             
-            </TextField>
 
             <Button
               type="submit"

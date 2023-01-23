@@ -36,6 +36,7 @@ import NotRegistered from './Components/Pages/NotRegistered';
 import UserProfile from './Components/Pages/UserProfile';
 import MyOrders from './Components/Pages/MyOrders';
 import Aboutus from './Components/Pages/AboutUs';
+import Blog from './Components/Blog/blog';
 
 
 
@@ -77,7 +78,8 @@ export default function App() {
             <Route path="/album" element={<Album />} />
           
             <Route path="/restricted" element={<NotRegistered />} />
-          <Route path="/signup" element={<SignUp />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/blog" element={<Blog />} />
           <Route path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
           <Route path="/activate/:uid/:token" element={<Activate />} />
           {/* <Route path="/testing" element={<UserProfile />} /> */}
