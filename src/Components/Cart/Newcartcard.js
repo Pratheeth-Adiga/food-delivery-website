@@ -1,12 +1,13 @@
 import React from "react";
-import { Button, Typography,Grid,Paper,Card,CardContent,TextField } from "@mui/material";
+import { Button, Typography,Grid,Paper,Card,CardContent,TextField, Divider } from "@mui/material";
 
 export default function NewCartCard(){
     return(
-        <Grid container pt={2} pl={2}>
+        <div>
+        <Grid container pt={2} pl={2} spacing={3}>
             <Grid item xs={7}>
                 <Paper elevation={5}>
-                    <Typography variant="h4" pl={2}>
+                    <Typography variant="h4" pl={2} pt={2} pb={2}>
                         Cart - x items
                     </Typography>
                     <Card>
@@ -71,11 +72,52 @@ export default function NewCartCard(){
                                 </Grid>
                             </Grid>
                         </CardContent>
-                    </Card>
-                                        
+                    </Card>               
                 </Paper>
             </Grid>
-
+            <Grid item xs={4}>
+                <Paper elevation={5}>
+                    <Card>
+                        <CardContent>
+                            <Typography variant="h5" pb={1} pl={1}>
+                                Summary
+                            </Typography>
+                            <Divider/>
+                            <Typography variant="body2" pt={1} pl={1}>
+                                Products:   $69
+                            </Typography>
+                            <Typography variant="body2" pt={1} pl={1}>
+                                Delivery Charges:   $69
+                            </Typography>
+                            <Divider/>
+                            <Typography variant="body2" pt={1} pl={1}>
+                                Total Amount:   $69
+                            </Typography>
+                            <Grid container justifyContent="flex-end" pt={2}>
+                            <Button color="success" variant="contained">
+                                Checkout
+                            </Button>
+                            </Grid>
+                        </CardContent>
+                    </Card>
+                </Paper>
+            </Grid>
         </Grid>
+
+        <Grid container pt={3} pl={2}>
+        <Grid item xs= {7}>
+            <Paper elevation={5}>
+               
+                <Typography variant="h5" pl={2} pt={2}>
+                    Expected Delivery
+                </Typography>
+                <Divider/>
+                <Typography variant="body1" pl={2} pt={2} pb={2}>
+                    Within 50 mins
+                </Typography>
+            </Paper>
+        </Grid>
+        </Grid>
+    </div>
     )
 }

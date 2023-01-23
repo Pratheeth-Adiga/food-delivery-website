@@ -29,7 +29,7 @@ import Checkout3 from './Components/CheckOut/Revie';
 import Checkout4 from './Components/CheckOut/final';
 import Role from './Components/Pages/role';
 import NewCartCard from './Components/Cart/Newcartcard';
-import RestuarantOrderItems from './Components/Pages/OrderItems';
+
 
 export default function App() {
   useEffect(() => { 
@@ -63,7 +63,7 @@ export default function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
           <Route path="/activate/:uid/:token" element={<Activate />} />
-          <Route path="/testing" element={<NewCartCard />} />
+          <Route path="/testing" element={<UserProfile />} />
           <Route path="/report" element={<Report />} />
           <Route path="*" element={<InvalidPage />} />
           </Routes>
