@@ -29,9 +29,9 @@ import Checkout3 from './Components/CheckOut/Revie';
 import Checkout4 from './Components/CheckOut/final';
 import Role from './Components/Pages/role';
 import NewCartCard from './Components/Cart/Newcartcard';
+import RestuarantOrderItems from './Components/Pages/OrderItems';
+import Album from './Components/Pages/Album';
 import UserProfile from './Components/Pages/UserProfile';
-import RestuarantOrderItems from './Components/Pages/OrderItems'
-
 
 export default function App() {
   useEffect(() => { 
@@ -52,8 +52,9 @@ export default function App() {
           <Route path="/cart/:id" element={<Cart />} />
           <Route path="/delivery" element={<DeliveryAgent />} />
           <Route path="/menu/:resid" element={<Menu />} />
-          <Route path="/restaurantpage/:id" element={<RestaurantPage />} />
-          <Route path="/restaurantorders/:id/" element={<RestuarantOrderItems />} />
+            <Route path="/restaurantpage/:id" element={<RestaurantPage />} />
+            <Route path="/restaurantorders/:id" element={<RestuarantOrderItems />} />
+            <Route path="/restaurantorders/:id/:oid" element={<RestuarantOrderItems />} />
           <Route path="/editmenu" element={<RestaurantPage />} />
           <Route path="/rprofile/:id" element={<RestuarantProfile/>} />
           <Route path="/cprofile/:id" element={<CustomerProfile />} />
@@ -61,11 +62,12 @@ export default function App() {
           <Route path="/newitem" element={<NewItem />} />
           <Route path="/menuedit" element={<MenuEdit />} />
           <Route path="/reset-password" element={<ResetPass />} />
-          <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/album" element={<Album />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
           <Route path="/activate/:uid/:token" element={<Activate />} />
-          <Route path="/testing" element={<UserProfile />} />
+          {/* <Route path="/testing" element={<UserProfile />} /> */}
           <Route path="/report" element={<Report />} />
           <Route path="*" element={<InvalidPage />} />
           </Routes>

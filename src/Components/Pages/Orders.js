@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function Orders() {
-  const { id,fid } = useParams();
-
+  const { id,oid } = useParams();
+    console.log(oid)
   const [data, setData] = useState([]);
   const fetchData = async () => {
-    const response = await axios.get(`http://127.0.0.1:8000/restItems/${id}/`);
+    const response = await axios.get(`http://127.0.0.1:8000/restItems/${id}/${oid}/`);
     const res = await response.data;
     console.log(res);
     setData(res);
