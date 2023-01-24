@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Grid,Typography } from "@mui/material";
 
 export default function Middle(){
     return(
@@ -8,12 +8,12 @@ export default function Middle(){
                 <p>
                     <Grid container pl={1}>
                     <Grid container justifyContent='center' pt={2}>
-                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iSu2RcCcdm78xbxNDJMJSgHaEo%26pid%3DApi&f=1&ipt=70ec24eac66bb835a26ac9ff0f1667afc597a926eefdeb70cc3533e35bccd188&ipo=images" alt="random-img" height={100} width={100}/>
+                    <img src="https://webstockreview.net/images/clipart-food-character-1.png" alt="random-img" height={100} width={100}/>
                     </Grid>
-                    <p>
+                    <Typography pl={10} pt={3}>
                     {/* Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus nisi magnam incidunt. Tempore ab vero maiores accusantium, quae error architecto! */}
-                    Very good restuarants are available here
-                    </p>
+                    Get all your restaurant and food needs at one place
+                    </Typography>
                     </Grid>
                 </p>
             </Grid> 
@@ -21,12 +21,12 @@ export default function Middle(){
                 <p>
                     <Grid container pl={1}>
                     <Grid container justifyContent='center' pt={2}>
-                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iSu2RcCcdm78xbxNDJMJSgHaEo%26pid%3DApi&f=1&ipt=70ec24eac66bb835a26ac9ff0f1667afc597a926eefdeb70cc3533e35bccd188&ipo=images" alt="random-img" height={100} width={100}/>
+                    <img src="https://webstockreview.net/images/clipart-restaurant-restaurant-worker-3.png" alt="random-img" height={100} width={100}/>
                     </Grid>
-                    <p>
+                    <Typography pl={20} pt={3}>
                     {/* Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus nisi magnam incidunt. Tempore ab vero maiores accusantium, quae error architecto! */}
-                    Best website to website for all your food needs
-                    </p>
+                    Best Service guaranteed 
+                    </Typography>
                     </Grid>
                 </p>
             </Grid> 
@@ -34,12 +34,12 @@ export default function Middle(){
                 <p>
                     <Grid container pl={1}>
                     <Grid container justifyContent='center' pt={2}>
-                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.iSu2RcCcdm78xbxNDJMJSgHaEo%26pid%3DApi&f=1&ipt=70ec24eac66bb835a26ac9ff0f1667afc597a926eefdeb70cc3533e35bccd188&ipo=images" alt="random-img" height={100} width={100}/>
+                    <img src="https://www.a1wreckers.com.au/wp-content/uploads/2021/03/There-Are-No-Hidden-Charges.png" alt="random-img" height={100} width={100}/>
                     </Grid>
-                    <p>
+                    <Typography pl={23} pt={3}>
                     {/* Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus nisi magnam incidunt. Tempore ab vero maiores accusantium, quae error architecto! */}
-                    Great work devs!
-                    </p>
+                    No hidden Charges
+                    </Typography>
                     </Grid>
                 </p>
             </Grid> 
