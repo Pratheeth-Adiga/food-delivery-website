@@ -58,7 +58,7 @@ export default function App() {
           <Route path="/checkout3/:id" element={<Checkout3 />} />
           <Route path="/checkoutfinal/:id" element={<Checkout4/>} />
           <Route path="/customerpage" element={<CustomerPage />} />
-          <Route path="/cart/:id" element={<Cart />} />
+          {/* <Route path="/deprecated/:id" element={<Cart />} /> */}
           <Route path="/delivery" element={<DeliveryAgent />} />
           <Route path="/blog/:resid" element={<Menu />} />
             <Route path="/restaurantpage/:id" element={<RestaurantPage />} />
@@ -82,7 +82,7 @@ export default function App() {
             <Route path="/menu/:resid" element={<Blog />} />
           <Route path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
           <Route path="/activate/:uid/:token" element={<Activate />} />
-          <Route path="/testing/:id" element={<NewCartCard />} />
+          <Route path="/cart/:id" element={<NewCartCard />} />
           <Route path="/report" element={<Report />} />
           <Route path="*" element={<InvalidPage />} />
           </Routes>

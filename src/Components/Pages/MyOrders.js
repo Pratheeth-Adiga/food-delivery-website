@@ -183,13 +183,18 @@ export default function MyOrders(props) {
           <h4>Details:</h4>
               </Typography>
               <div>
-              {data.map((x) => {
+          {data.map((x) => {
+                return(
                   
                   <Typography paragraph>
          
-                      <h4>Order Number: {x?.id}</h4>
+                    <h4>Order Number: {x?.id}</h4>
+                    Order Price : Rs. {x?.Price} 
+                    Status: x{x?.Status === 1 ?
+                      <Typography>Processing</Typography>
+                     :<Typography>Delivered</Typography>}
                   </Typography>
-              })}
+             ) })}
                   </div>
        
       </Box>

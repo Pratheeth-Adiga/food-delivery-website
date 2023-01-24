@@ -12,7 +12,7 @@ import {
 import CusTop from "../CustomerPage/CusTop";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function NewCartCard() {
   const { id } = useParams();
@@ -33,6 +33,15 @@ export default function NewCartCard() {
     axios.delete(`http://127.0.0.1:8000/cartdeleteItem/${id}/${foodid}/`);
     window.location.reload(false);
   };
+  const deleteAll = () => {
+    console.log("here")
+    axios.delete(`http://127.0.0.1:8000/cartdelete/${id}/`)
+    window.location.reload(false)
+  }
+    const navigate = useNavigate();
+  const checkout = () => {
+    navigate(`/checkout/${id}`)
+}
   const [price, setPrice] = useState(0);
   return (
     <div>
@@ -51,57 +60,41 @@ export default function NewCartCard() {
             <Typography variant="h4" pl={2} pt={2} pb={2}>
               Cart - {data.length} items
             </Typography>
-            <Card>
-              {data.map((x, i) => {
-                <CardContent>
-                  <Grid container>
-                    <Grid item>
-                      <img
-                        src="https://www.rd.com/wp-content/uploads/2018/12/shutterstock_1161597079.jpg"
-                        alt="a"
-                        width="120px"
-                        height="120px"
-                      ></img>
-                    </Grid>
-                    <Grid item pl={2}>
-                      <Typography variant="h5">{x?.Name}</Typography>
-                      <Typography variant="h6">{x?.Price}</Typography>
-                    </Grid>
-                  </Grid>
-                </CardContent>;
-              })}
-            </Card>
 
             <Card>
-              <CardContent>
-                {data.map((x) => {
-                  <Grid container>
-                    <Grid item>
-                      <img
-                        src="https://www.rd.com/wp-content/uploads/2018/12/shutterstock_1161597079.jpg"
-                        alt="a"
-                        width="120px"
-                        height="120px"
-                      ></img>
+              {data.map((x, i) => {
+                return (
+                  <CardContent>
+                    <Grid container>
+                      <Grid item>
+                        <img
+                          src="https://www.rd.com/wp-content/uploads/2018/12/shutterstock_1161597079.jpg"
+                          alt="a"
+                          width="120px"
+                          height="120px"
+                        ></img>
+                      </Grid>
+                      <Grid item pl={2}>
+                        <Typography variant="h5">{x?.Name}</Typography>
+                        <Typography variant="h7">
+                          Price: Rs.{x?.Price}
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={7}></Grid>
+                      <Grid item xs={1}>
+                        <Button
+                          variant="contained"
+                          color="error"
+                          onClick={() => deleteOne(x?.id)}
+                        >
+                          Delete
+                        </Button>
+                      </Grid>
                     </Grid>
-                    <Grid item pl={2}>
-                      <Typography variant="h5">{x?.Name}</Typography>
-                      <Typography variant="h7">Price=</Typography>
-                    </Grid>
-                    <Grid item xs={7}></Grid>
-                    <Grid item xs={1}>
-                      <Button
-                        variant="contained"
-                        color="error"
-                        onClick={() => deleteOne(x?.id)}
-                      >
-                        Remove
-                      </Button>
-                    </Grid>
-                  </Grid>;
-                })}
-              </CardContent>
-              ;
+                    {/* })} */}
+                  </CardContent>
+                );
+              })}
             </Card>
           </Paper>
         </Grid>
@@ -130,7 +123,7 @@ export default function NewCartCard() {
                     .toFixed(2)}
                 </Typography>
                 <Grid container justifyContent="flex-end" pt={2}>
-                  <Button color="success" variant="contained">
+                  <Button color="success" variant="contained" onClick={checkout}>
                     Checkout
                   </Button>
                 </Grid>
@@ -151,8 +144,10 @@ export default function NewCartCard() {
               Within 50 mins
             </Typography>
           </Paper>
-        </Grid>
-      </Grid>
+              </Grid>
+              
+          </Grid>
+          <Button variant="contained" color="error" onClick={()=>deleteAll()}>Remove all items</Button>
     </div>
   );
 }
