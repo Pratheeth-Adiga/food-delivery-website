@@ -41,6 +41,7 @@ const onSubmit = e => {
   const navigate=useNavigate()
 const state = store.getState();
   const User = state.auth.user;
+  // const isAuthenticated1=localStorage.getItem('access')
   if (isAuthenticated) {
     console.log("jee")
     navigate(`/role/${User.id}`)

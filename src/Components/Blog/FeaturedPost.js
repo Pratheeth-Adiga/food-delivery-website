@@ -39,9 +39,11 @@ function FeaturedPost(props) {
               {post.Tag}
             </Typography>
             <Typography variant="subtitle1" paragraph>
-              'This is a wider card with supporting text below as a natural
-              lead-in to additional content.'
+              {post.Descr}
             </Typography>
+            <Button variant="outlined" color="success" onClick={()=>{addToCart(post.id)}}>
+          Add to cart
+        </Button>
           </CardContent>
           <CardMedia
             component="img"
@@ -50,9 +52,7 @@ function FeaturedPost(props) {
             alt={post.imageLabel}
           />
         </Card>
-        <Button variant="contained" color="success" onClick={()=>{addToCart(post.id)}}>
-          Add to cart
-        </Button>
+        
       </CardActionArea>
     </Grid>
   );

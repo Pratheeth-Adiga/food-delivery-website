@@ -34,14 +34,14 @@ export default function NewCartCard() {
     window.location.reload(false);
   };
   const deleteAll = () => {
-    console.log("here")
-    axios.delete(`http://127.0.0.1:8000/cartdelete/${id}/`)
-    window.location.reload(false)
-  }
-    const navigate = useNavigate();
+    console.log("here");
+    axios.delete(`http://127.0.0.1:8000/cartdelete/${id}/`);
+    window.location.reload(false);
+  };
+  const navigate = useNavigate();
   const checkout = () => {
-    navigate(`/checkout/${id}`)
-}
+    navigate(`/checkout/${id}`);
+  };
   const [price, setPrice] = useState(0);
   return (
     <div>
@@ -51,7 +51,7 @@ export default function NewCartCard() {
           {data.length === 0 ? (
             <h2>
               Cart is empty :/
-              <a href="/customerpage">Click here to go back</a>
+              <a href="/album">Click here to go back</a>
             </h2>
           ) : (
             <></>
@@ -81,7 +81,7 @@ export default function NewCartCard() {
                         </Typography>
                       </Grid>
                       <Grid item xs={7}></Grid>
-                      <Grid item xs={1}>
+                      <Grid container justifyContent="flex-end" pt={2}>
                         <Button
                           variant="contained"
                           color="error"
@@ -123,7 +123,11 @@ export default function NewCartCard() {
                     .toFixed(2)}
                 </Typography>
                 <Grid container justifyContent="flex-end" pt={2}>
-                  <Button color="success" variant="contained" onClick={checkout}>
+                  <Button
+                    color="success"
+                    variant="contained"
+                    onClick={checkout}
+                  >
                     Checkout
                   </Button>
                 </Grid>
@@ -144,10 +148,19 @@ export default function NewCartCard() {
               Within 50 mins
             </Typography>
           </Paper>
-              </Grid>
-              
-          </Grid>
-          <Button variant="contained" color="error" onClick={()=>deleteAll()}>Remove all items</Button>
+        </Grid>
+      </Grid>
+      <Grid container pt={3} pl={2}>
+        <Button
+          pt={3}
+          pl={2}
+          variant="contained"
+          color="error"
+          onClick={() => deleteAll()}
+        >
+          Remove all items
+        </Button>
+      </Grid>
     </div>
   );
 }

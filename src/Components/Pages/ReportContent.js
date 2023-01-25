@@ -7,67 +7,52 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Typography } from "@mui/material";
 import { Divider } from "@mui/material";
-
-// Generate Order Data
-// function createData(id, date, name, shipTo, paymentMethod, amount) {
-//   return { id, date, name, shipTo, paymentMethod, amount };
-// }
-
-// const rows = [
-//   createData(
-//     0,
-//     '16 Mar, 2019',
-//     'Elvis Presley',
-//     'Tupelo, MS',
-//     'VISA ⠀•••• 3719',
-//     312.44,
-//   ),
-//   createData(
-//     1,
-//     '16 Mar, 2019',
-//     'Paul McCartney',
-//     'London, UK',
-//     'VISA ⠀•••• 2574',
-//     866.99,
-//   ),
-//   createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
-//   createData(
-//     3,
-//     '16 Mar, 2019',
-//     'Michael Jackson',
-//     'Gary, IN',
-//     'AMEX ⠀•••• 2000',
-//     654.39,
-//   ),
-//   createData(
-//     4,
-//     '15 Mar, 2019',
-//     'Bruce Springsteen',
-//     'Long Branch, NJ',
-//     'VISA ⠀•••• 5919',
-//     212.79,
-//   ),
-// ];
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { json } from "react-router-dom";
 
 function preventDefault(event) {
   event.preventDefault();
 }
 
 export default function ReportContent() {
+  const [data, setData] = useState([]);
+  const fetchData = async () => {
+    const response = await axios.get(`http://127.0.0.1:8000/getreport/`);
+    const res = await response.data;
+    console.log(res);
+    setData(res);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+    console.log("Hi",);
+    
   return (
     <React.Fragment>
       <Typography component="h2" variant="h6" color="primary" gutterBottom>
         Foody Web- A Project By Pratheeth Adiga and Priyanka Rose Varghese
       </Typography>
       <Typography component="h4" variant="h7" color="success" gutterBottom>
-        This table contains all the essential reports of our project
+        This table contains all the essential reports of our website
       </Typography>
 
+      <Divider sx={{ my: 1 }} />
+      <Typography variant="h7" color="success" gutterBottom>
+        Total Number of registered Users: {data.user}
+          </Typography>
           <Divider sx={{ my: 1 }} />
-          <Typography  variant="h7" color="success" gutterBottom>
-        Total Number of registered Users: 
-      </Typography>
-          
+          <Typography variant="h7" color="success" gutterBottom>
+        Total Number of registered Restaurants: {data.rest}
+          </Typography>
+          <Divider sx={{ my: 1 }} />
+          <Typography variant="h7" color="success" gutterBottom>
+        Total Number of Orders Placed: {data.total}
+          </Typography>
+          <Divider sx={{ my: 1 }} />
+          <Typography variant="h7" color="success" gutterBottom>
+        Total Number of Orders Delivered successfully: {data.delivered}
+          </Typography>
     </React.Fragment>
   );
 }
