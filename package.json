@@ -21,6 +21,8 @@
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "react-to-print": "^2.14.11",
+    "rechart": "^0.0.1",
+    "recharts": "^2.3.2",
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",

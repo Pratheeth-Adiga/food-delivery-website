@@ -37,6 +37,8 @@ import UserProfile from './Components/Pages/UserProfile';
 import MyOrders from './Components/Pages/MyOrders';
 import Aboutus from './Components/Pages/AboutUs';
 import Blog from './Components/Blog/blog';
+import Wallet from './Components/Pages/Wallet';
+import Dashboard from './Components/Dashboard/Dashboard';
 
 
 
@@ -58,13 +60,15 @@ export default function App() {
           <Route path="/checkout3/:id" element={<Checkout3 />} />
           <Route path="/checkoutfinal/:id" element={<Checkout4/>} />
           <Route path="/customerpage" element={<CustomerPage />} />
-          {/* <Route path="/deprecated/:id" element={<Cart />} /> */}
+            <Route path="/wallet/:id" element={<Wallet />} />
+            <Route path="/restaurantpage/:id" element={<Dashboard />} />
           <Route path="/delivery" element={<DeliveryAgent />} />
           <Route path="/blog/:resid" element={<Menu />} />
-            <Route path="/restaurantpage/:id" element={<RestaurantPage />} />
+            <Route path="/rxyz/:id" element={<RestaurantPage />} />
             <Route path="/restaurantorders/:id" element={<RestuarantOrderItems />} />
             <Route path="/restaurantorders/:id/:oid" element={<RestuarantOrderItems />} />
-          <Route path="/editmenu" element={<RestaurantPage />} />
+            <Route path="/editmenu" element={<RestaurantPage />} />
+            
           <Route path="/rprofile/:id" element={<RestuarantProfile/>} />
             <Route path="/cprofile/:id" element={<UserProfile />} />
             <Route path="/myorders/:id" element={<MyOrders />} />

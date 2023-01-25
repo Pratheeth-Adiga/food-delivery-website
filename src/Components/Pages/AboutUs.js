@@ -40,6 +40,11 @@ export default function Aboutus() {
               <Typography variant="body1"> </Typography>
               <Button variant="contained" color="success" href='/album'>
                       Browse our restaurants
+        </Button>
+        <Typography variant="body1"> </Typography>
+        <Typography variant="body1"> </Typography>
+        <Button variant="contained"  href='/report' sx={{ mt: 2, mb: 2 }}>
+                      Report
                     </Button>
       </Container>
       <Box

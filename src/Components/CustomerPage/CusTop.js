@@ -21,6 +21,12 @@ const CusTop = ({ logout }) => {
             navigate(`/cprofile/${User.id}`)
             
     }
+    const gotoCart = () => {
+        if (User === null)
+            navigate(`/cart/1`)
+        else
+            navigate(`/cart/${User.id}`)
+    }
     
     return(
         <Box>
@@ -38,7 +44,7 @@ const CusTop = ({ logout }) => {
                 </div>
               </Grid>
                 <Grid item xs={1} pt={2} pl={10}>
-                    <Link href="/cart/1"underline="none"><ShoppingCartIcon/></Link>   
+                    <Link onClick={ gotoCart} underline="none"><ShoppingCartIcon/></Link>   
                 </Grid>
                 <Grid item xs={1} pt={1} pl={1}>
                     <Button

@@ -25,21 +25,21 @@ import axios from 'axios';
 
 const drawerWidth = 240;
 
-export default function UserProfile(props) {
+export default function Wallet(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const navigateOrder = () => {
-    navigate(`/myorders/${id}`)
-  }
-  const navigateWallet= () => {
-    navigate(`/wallet/${id}`)
+  const navigateProfile = () => {
+    navigate(`/cprofile/${id}`)
   }
   const navigateAboutUs= () => {
     navigate(`/aboutus`)
+  }
+  const navigateOrder = () => {
+    navigate(`/myorders/${id}`)
   }
   const drawer = (
     <div>
@@ -50,7 +50,7 @@ export default function UserProfile(props) {
       <List>
         
 
-        <ListItem>
+        <ListItem onClick={navigateProfile}>
             <ListItemButton>
                 <ListItemIcon>
                     <ManageAccountsIcon/>
@@ -58,8 +58,8 @@ export default function UserProfile(props) {
                 <ListItemText primary="My Profile"/>
             </ListItemButton>
         </ListItem>
-        <ListItem>
-            <ListItemButton onClick={navigateOrder}>
+        <ListItem  onClick={navigateOrder}>
+            <ListItemButton>
                 <ListItemIcon>
                     <ShoppingBagIcon/>
                 </ListItemIcon>
@@ -67,7 +67,7 @@ export default function UserProfile(props) {
             </ListItemButton>
         </ListItem>
 
-        <ListItem onClick={navigateWallet}>
+        <ListItem>
             <ListItemButton>
                 <ListItemIcon>
                     <AccountBalanceWalletIcon/>
@@ -103,19 +103,16 @@ export default function UserProfile(props) {
   const [data, setData] = useState([]);
   const fetchData = async () => {
     const response = await axios.get(
-      `http://127.0.0.1:8000/getuser/${id}/`
+        `http://127.0.0.1:8000/getuserorder/${id}/`
     );
     const res = await response.data;
     console.log(res);
     setData(res);
   };
-  useEffect(() => {
-    
+  useEffect(() => { 
     fetchData();
-    
-  
   }, []);
-    
+  
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -136,8 +133,8 @@ export default function UserProfile(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-           {data.length===0? "<usrname>": data[0]?.Username}
+                  <Typography variant="h6" noWrap component="div">
+                      My Wallet
           </Typography>
         </Toolbar>
       </AppBar>
@@ -177,37 +174,30 @@ export default function UserProfile(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        <Button variant="contained" onClick={navigateto}> Edit Profile </Button>
+        {/* <Button variant="contained" onClick={navigateto}> Edit Profile </Button> */}
         <Typography paragraph pt={1}>
           Welcome to Foody Web, 
           
-        </Typography>
+              </Typography>
+              
         <Typography paragraph>
-          This is a page that contains your public details.
-          <h4>Details:</h4>
-        </Typography>
-        <Typography paragraph>
+          This is a page that contains your wallet amount. To make it visible please use a Foody Web Wallet Account
+          <h2>Details:</h2>
+              </Typography>
+              <div>
+          
+                  
+                  <Typography paragraph>
          
-          <h4>Name: {data.length===0? "null": data[0]?.Name}</h4>
-        </Typography>
-        <Typography paragraph>
-         
-         <h4>Address: {data.length===0? "null": data[0]?.Addr}</h4>
-        </Typography>
-        <Typography paragraph>
-         
-         <h4>Phone Number: {data.length===0? "null": data[0]?.Mobile}</h4>
-        </Typography>
+                   <h3> Wallet Amount: Rs 0.00</h3>
+                      
+                    
+                  </Typography>
+           
+                  </div>
        
       </Box>
     </Box>
   );
 }
 
-UserProfile.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};

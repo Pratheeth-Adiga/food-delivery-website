@@ -29,6 +29,7 @@ const theme = createTheme();
 export default function Blog() {
   const state = store.getState();
   const User = state.auth.user;
+
   const { resid } = useParams();
   console.log(resid);
   const navigate = useNavigate();
@@ -67,7 +68,9 @@ export default function Blog() {
     axios.post("http://127.0.0.1:8000/cart/", post_data);
     navigate(`/cart/${User.id}`);
   };
-  const gotoCart = (id) => {};
+    const gotoCart = () => {
+        navigate(`/cart/${User.id}`);
+  };
 
   const mainFeaturedPost = {
     title: data1[0]?.Name,
@@ -115,7 +118,7 @@ export default function Blog() {
             {/* <IconButton>
           <SearchIcon />
         </IconButton> */}
-            <Button variant="outlined" size="small" onClick={()=>gotoCart}>
+                      <Button variant="outlined" size="small" onClick={() => { gotoCart() }}>
               Cart
             </Button>
           </Toolbar>
@@ -127,11 +130,15 @@ export default function Blog() {
         </React.Fragment>
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
+          {data.length === 0 ? (
+            <h3>This restaurant hasn't uploaded their Menus yet. Come again later</h3>
+          ) : (
+            <></>
+          )}
           <Grid container spacing={4}>
             {data?.map((x) => (
               <>
                 <FeaturedPost key={x?.id} post={x} />
-                
               </>
             ))}
           </Grid>
