@@ -8,18 +8,15 @@ export default function Footer(){
                 <p><strong>Project by</strong></p>
                 <p>Pratheeth Adiga(20GACSE049)</p>
                 <p>Priyanka Rose Varghese(20GACSE050)</p>
-                {/* <p>Company</p> */}
             </Grid>
             <Grid item xs={4} pl={14}>
-                <p >About Us</p>
+                <p>About us</p>
                 <p>Contact Us: foodyweb050@gmail.com</p>
-                
             </Grid>
             <Grid item xs={4} pl ={15}>
                 <p>Under the Guidance of </p>
                 <p>Dr. Champa. H. N </p>
-                <p>Puneeth Sir</p>
-                {/* <p>Legal</p> */}
+                <p>Punith Kumar</p>
             </Grid>
         </Grid>
     )

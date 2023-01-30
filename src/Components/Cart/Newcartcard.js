@@ -6,13 +6,15 @@ import {
   Paper,
   Card,
   CardContent,
-  TextField,
   Divider,
 } from "@mui/material";
 import CusTop from "../CustomerPage/CusTop";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
+let x = Math.floor((Math.random() * 10) + 10);
+let y = Math.floor((Math.random() * 12.6) + 6)
 
 export default function NewCartCard() {
   const { id } = useParams();
@@ -91,7 +93,6 @@ export default function NewCartCard() {
                         </Button>
                       </Grid>
                     </Grid>
-                    {/* })} */}
                   </CardContent>
                 );
               })}
@@ -113,13 +114,13 @@ export default function NewCartCard() {
                     .toFixed(2)}
                 </Typography>
                 <Typography variant="body2" pt={1} pl={1}>
-                  Delivery Charges: $0.00
+                  Delivery Charges: Rs {y.toFixed(2)}
                 </Typography>
                 <Divider />
                 <Typography variant="body2" pt={1} pl={1}>
                   Total Amount: Rs.
                   {data
-                    .reduce((acc, item) => acc + 1 * item.Price, 0)
+                    .reduce((acc, item) => acc + 1 * item.Price + x, 0)
                     .toFixed(2)}
                 </Typography>
                 <Grid container justifyContent="flex-end" pt={2}>
@@ -145,7 +146,7 @@ export default function NewCartCard() {
             </Typography>
             <Divider />
             <Typography variant="body1" pl={2} pt={2} pb={2}>
-              Within 50 mins
+              Within {x} mins
             </Typography>
           </Paper>
         </Grid>

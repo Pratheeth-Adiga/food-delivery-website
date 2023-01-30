@@ -1,11 +1,11 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import { Avatar,Grid,Button } from '@mui/material';
+import { Avatar,Grid } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -185,17 +185,10 @@ export default function Wallet(props) {
           <h2>Details:</h2>
               </Typography>
               <div>
-          
-                  
-                  <Typography paragraph>
-         
+                  <Typography paragraph>u
                    <h3> Wallet Amount: Rs 0.00</h3>
-                      
-                    
                   </Typography>
-           
                   </div>
-       
       </Box>
     </Box>
   );

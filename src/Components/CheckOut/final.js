@@ -1,5 +1,3 @@
-
-
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
@@ -7,9 +5,6 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 import Paper from '@mui/material/Paper';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
@@ -33,19 +28,13 @@ function Copyright() {
 }
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
-
-
-
 const theme = createTheme();
 
 export default function Checkout4() {
     const { id } = useParams();
-
     const navigate = useNavigate()
-    
     const handleNext = () => {
         axios.delete(`http://127.0.0.1:8000/cartdelete/${id}/`)
-
       navigate(`/album`)
     };
     
@@ -83,7 +72,6 @@ export default function Checkout4() {
                 arrived at your doorstep.
               </Typography>
             </React.Fragment>
-          
             
               <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <Button
@@ -94,8 +82,6 @@ export default function Checkout4() {
                   Go back Home
                 </Button>
               </Box>
-            
-        
         </Paper>
         <Copyright />
       </Container>

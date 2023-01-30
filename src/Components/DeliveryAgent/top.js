@@ -10,7 +10,6 @@ export default function Top(){
                 <img src="https://scalebranding.com/wp-content/uploads/2020/03/fun-food-logo.jpg" alt='logo' height="50px" width="50px"></img>
             </Grid>
             <Grid item xs={10}>
-                {/* <Typography variant="body2">Food Website</Typography> */}
             </Grid>
             <Grid pr={1} pt={1}>
                 <Button variant="outlined">

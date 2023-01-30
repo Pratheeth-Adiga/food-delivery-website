@@ -3,7 +3,7 @@ import { Grid, Card, CardContent, Typography, Button } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+
 export default function CartCard() {
   const { id } = useParams();
   const [data, setData] = useState([]);

@@ -12,15 +12,9 @@ import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-// import AddressForm from "../CheckOut/AddressForm";
-// import PaymentForm from "../CheckOut/PaymentForm";
-// import Review from "../CheckOut/Review";
 import { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import { useNavigate, useParams } from "react-router-dom";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -82,9 +76,6 @@ export default function Checkout3() {
     );
     console.log("ji,", res.data);
     console.log(data[0].id);
-    // for (let i = 0; i < data.length; i++)
-    // {
-    //     console.log("hi")
     data.map(async (x) => {
       const post_data1 = {
         Order_Id: res.data.id,

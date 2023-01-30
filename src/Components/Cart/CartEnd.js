@@ -24,9 +24,7 @@ export default function CartEnd() {
                 
                 </Grid>
                 <Grid>
-                    
                         <Button variant="contained" color="success" onClick={checkout}>Checkout</Button>
-                    
                 </Grid>
             </Grid>
         </Box>

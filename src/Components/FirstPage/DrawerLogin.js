@@ -14,7 +14,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useState } from 'react';
-// import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
 const theme = createTheme();
@@ -81,10 +80,7 @@ function SignIn() {
     event.preventDefault();
     // const data = new FormData(event.currentTarget);
     // let email = data.get('email')
-    
     login(email, password)
-   
-  
     // console.log({
     //   email: data.get('email'),
     //   password: data.get('password'),

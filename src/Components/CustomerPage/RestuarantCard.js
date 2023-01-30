@@ -52,8 +52,6 @@ export default function FoodCards() {
         )
         } 
         </Grid>
-      
-      {/* <h1>hey</h1> */}
     </div>
       
   );
