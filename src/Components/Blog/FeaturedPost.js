@@ -11,6 +11,15 @@ import store from "../../store";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+let idli = "https://www.thespruceeats.com/thmb/6j6Ne_4F62_uigRCvTZYVykcHhc=/2122x1415/filters:fill(auto,1)/idli-56a510b63df78cf772862c34.jpg";
+let dosa = "https://i.ytimg.com/vi/CCab5oh0ZOc/maxresdefault.jpg";
+let roti = "https://3.bp.blogspot.com/-TsR1mrtpIic/WTgVxZcV4KI/AAAAAAAACWQ/g626zbTr0EwI_lGHlCRA9VO3SvV1ROe-gCLcB/s1600/loonapix_14968509663081167873.jpg";
+let uppit = "https://i.ytimg.com/vi/r_s15RTEZlk/maxresdefault.jpg";
+let noodles = "https://www.funfoodfrolic.com/wp-content/uploads/2020/09/Garlic-Noodles-Thumbnail.jpg";
+let samosa = "https://curlytales.com/wp-content/uploads/2019/11/Samosa-Recipe.jpg";
+let panipuri = "https://1.bp.blogspot.com/-MjhYOpRFJeM/UbchEdUhDVI/AAAAAAAACcE/HTdJ-EghQlc/s1600/pani+puri.JPG";
+let abc_list = [idli,dosa,roti,uppit,noodles,samosa,panipuri];
+
 function FeaturedPost(props) {
     const { post } = props;
     const state = store.getState();
@@ -48,7 +57,7 @@ function FeaturedPost(props) {
           <CardMedia
             component="img"
             sx={{ width: 160, display: { xs: "none", sm: "block" } }}
-            image="https://source.unsplash.com/random"
+            image={abc_list[2]}
             alt={post.imageLabel}
           />
         </Card>

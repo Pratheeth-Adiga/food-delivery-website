@@ -89,9 +89,6 @@ export default function Blog() {
               noWrap
               sx={{ flex: 1 }}
             ></Typography>
-            {/* <IconButton>
-          <SearchIcon />
-        </IconButton> */}
                       <Button variant="outlined" size="small" onClick={() => { gotoCart() }}>
               Cart
             </Button>

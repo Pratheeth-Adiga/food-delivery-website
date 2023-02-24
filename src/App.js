@@ -40,10 +40,6 @@ import Blog from './Components/Blog/blog';
 import Wallet from './Components/Pages/Wallet';
 import Dashboard from './Components/Dashboard/Dashboard';
 
-
-
-
-
 export default function App() {
   useEffect(() => { 
     store.dispatch(load_user())
