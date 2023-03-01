@@ -33,7 +33,7 @@ function FeaturedPost(props) {
           Quantity: 1,
         };
         axios.post("http://127.0.0.1:8000/cart/", post_data);
-        navigate(`/cart/${User.id}`);
+        // navigate(`/cart/${User.id}`);
       };
 
   return (
@@ -57,7 +57,7 @@ function FeaturedPost(props) {
           <CardMedia
             component="img"
             sx={{ width: 160, display: { xs: "none", sm: "block" } }}
-            image={abc_list[2]}
+            image={post.Url}
             alt={post.imageLabel}
           />
         </Card>

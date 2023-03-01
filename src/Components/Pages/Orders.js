@@ -43,7 +43,7 @@ export default function Orders() {
                 <Grid container>
                     <Grid item xs={2} pl={5}>
                     <img
-                      src={abc_list[2]}
+                      src={x?.Url}
                       alt="food"
                       width="100px"
                       height="100px"
@@ -55,7 +55,7 @@ export default function Orders() {
                                 {x?.Name}
                             </Typography>
                             <Typography variant="body">
-                                Priority or Quantity
+                                 Quantity: 1
                             </Typography>
                     </Grid>
                     <Grid item xs={4}>

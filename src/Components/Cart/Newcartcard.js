@@ -70,7 +70,7 @@ export default function NewCartCard() {
                     <Grid container>
                       <Grid item>
                         <img
-                          src="https://www.rd.com/wp-content/uploads/2018/12/shutterstock_1161597079.jpg"
+                          src={x?.Url}
                           alt="a"
                           width="120px"
                           height="120px"
@@ -78,9 +78,10 @@ export default function NewCartCard() {
                       </Grid>
                       <Grid item pl={2}>
                         <Typography variant="h5">{x?.Name}</Typography>
-                        <Typography variant="h7">
+                        <Typography variant="h8">
                           Price: Rs.{x?.Price}
                         </Typography>
+                       
                       </Grid>
                       <Grid item xs={7}></Grid>
                       <Grid container justifyContent="flex-end" pt={2}>

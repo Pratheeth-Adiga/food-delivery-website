@@ -47,7 +47,7 @@ const SignUp = ({ signup, isAuthenticated }) => {
  
   
   if (isAuthenticated) {
-    return <Navigate replace to="/customerpage" />;
+    return <Navigate replace to="/album" />;
   }
 
   

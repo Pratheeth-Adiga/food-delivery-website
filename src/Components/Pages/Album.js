@@ -100,13 +100,14 @@ export default function Album() {
                       // 16:9
                       pt: '8.25%',
                     }}
-                    image="http://media.architecturaldigest.com/photos/572a34ffe50e09d42bdfb5e0/master/pass/japanese-restaurants-la-01.jpg"
+                    image={x.Url}
                     alt="random"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
                       {x?.Name}
                     </Typography>
+                    
                     <Typography>
                       {x?.Description}
                     </Typography>
