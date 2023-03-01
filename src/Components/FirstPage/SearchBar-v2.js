@@ -13,6 +13,7 @@ export default function Bar() {
         options={top100Films.map((option) => option.title)}
         renderInput={(params) => (
           <TextField
+            {...params}
             label="Search"
             size='small'
             InputProps={{
