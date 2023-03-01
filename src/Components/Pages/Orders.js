@@ -60,7 +60,7 @@ export default function Orders() {
                     </Grid>
                     <Grid item xs={4}>
                     </Grid>
-                    <Grid item xs={1} pt={4}>
+                    {/* <Grid item xs={1} pt={4}>
                       <Button variant="contained" color="success">
                         Completed
                       </Button>
@@ -69,7 +69,7 @@ export default function Orders() {
                       <Button variant="contained" color="error">
                         Cancel Order
                       </Button>
-                    </Grid>
+                    </Grid> */}
 
                 </Grid>
               </CardContent>
