@@ -10,6 +10,7 @@ import { Button } from "@mui/material";
 import store from "../../store";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Alert from "@mui/material";
 
 let idli = "https://www.thespruceeats.com/thmb/6j6Ne_4F62_uigRCvTZYVykcHhc=/2122x1415/filters:fill(auto,1)/idli-56a510b63df78cf772862c34.jpg";
 let dosa = "https://i.ytimg.com/vi/CCab5oh0ZOc/maxresdefault.jpg";
@@ -32,7 +33,8 @@ function FeaturedPost(props) {
           User_Id: User.id,
           Quantity: 1,
         };
-        axios.post("http://127.0.0.1:8000/cart/", post_data);
+      axios.post("http://127.0.0.1:8000/cart/", post_data);
+      alert('Add to Cart successful');
         // navigate(`/cart/${User.id}`);
       };
 
