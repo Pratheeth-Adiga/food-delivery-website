@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import { Avatar,Grid,Button } from '@mui/material';
+import { Avatar,Grid,Button,Link } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -136,9 +136,19 @@ export default function UserProfile(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Grid container>
+            <Grid item xs = {11}>
+            <Typography variant="h6" noWrap component="div">
            {data.length===0? "<usrname>": data[0]?.Username}
           </Typography>
+            </Grid>
+            <Grid item xs = {1}>
+              <Link href='/album' underline='none'>
+                <Button variant='contained' color="success">Home</Button>
+              </Link>
+            </Grid>
+          </Grid>
+
         </Toolbar>
       </AppBar>
       <Box
@@ -175,27 +185,37 @@ export default function UserProfile(props) {
       <Box
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        pl = {2}
+        pt= {2}
       >
         <Toolbar />
         <Button variant="contained" onClick={navigateto}> Edit Profile </Button>
-        <Typography paragraph pt={1}>
+        
+        <br></br>
+
+        <Typography paragraph pt={3}>
           Welcome to Foody Web, 
           
         </Typography>
         <Typography paragraph>
           This is a page that contains your public details.
-          <h4>Details:</h4>
         </Typography>
-        <Typography paragraph>
          
+          <br></br>
+
+        <Typography variant='h5'>
+          Details :
+        </Typography>
+
+         <Typography variant='body2' pl={3}>
           <h4>Name: {data.length===0? "null": data[0]?.Name}</h4>
+          </Typography>
+
+        <Typography variant='body2' pl={3}>
+          <h4>Address: {data.length===0? "null": data[0]?.Addr}</h4>
         </Typography>
-        <Typography paragraph>
-         
-         <h4>Address: {data.length===0? "null": data[0]?.Addr}</h4>
-        </Typography>
-        <Typography paragraph>
-         
+        
+        <Typography variant='body2' pl={3}> 
          <h4>Phone Number: {data.length===0? "null": data[0]?.Mobile}</h4>
         </Typography>
        

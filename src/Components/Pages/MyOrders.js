@@ -226,9 +226,13 @@ export default function MyOrders(props) {
           </Paper>
         </Grid>
         <div>
+        <Grid container pt={2}>
           {data.map((x) => {
             return (
-              <Typography paragraph>
+                <Grid item xs = {3} pt ={2} pl={1} pr={1}>
+                <Card>
+                <CardContent>
+                <Typography>
                 <h4>Order Number: {x?.id}</h4>
                 <>Order Price : Rs. {x?.Price} </>
                 <>
@@ -259,9 +263,15 @@ export default function MyOrders(props) {
                   </Typography>
                 </>
                 </Typography>
+                </CardContent>
+              </Card>
+                </Grid>
+
+              
               
             );
           })}
+          </Grid>
         </div>
       </Box>
     </Box>
