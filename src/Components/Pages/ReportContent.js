@@ -54,9 +54,9 @@ export default function ReportContent() {
         Total Number of Orders Delivered successfully: {data.delivered}
           </Typography>
           <Divider sx={{ my: 1 }} />
-          <Typography variant="h7" color="success" gutterBottom>
+          {/* <Typography variant="h7" color="success" gutterBottom>
         Total Number of Orders waiting to be Processed: {data.pending}
-          </Typography>
+          </Typography> */}
     </React.Fragment>
   );
 }

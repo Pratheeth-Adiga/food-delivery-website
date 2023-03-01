@@ -237,7 +237,7 @@ export default function MyOrders(props) {
                 <>Order Price : Rs. {x?.Price} </>
                 <>
                 <Typography >
-                    Status:{" "}
+                   {" "}
                  
                   {x?.Status === 1 ? (
                     <div display="inline">
