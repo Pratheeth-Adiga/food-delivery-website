@@ -100,7 +100,7 @@ export default function Album() {
                       // 16:9
                       pt: '8.25%',
                     }}
-                    image="https://cdn.vox-cdn.com/thumbor/p-5xkpqxJTIjMaPSa8S-Ps2c_xo=/0x0:5996x4003/920x690/filters:focal(1003x1633:1961x2591):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/59732085/2021_03_23_Merois_008.12.jpg"
+                    image="http://media.architecturaldigest.com/photos/572a34ffe50e09d42bdfb5e0/master/pass/japanese-restaurants-la-01.jpg"
                     alt="random"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
