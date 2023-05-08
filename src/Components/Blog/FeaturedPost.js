@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -9,23 +8,11 @@ import CardMedia from "@mui/material/CardMedia";
 import { Button } from "@mui/material";
 import store from "../../store";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Alert from "@mui/material";
-
-let idli = "https://www.thespruceeats.com/thmb/6j6Ne_4F62_uigRCvTZYVykcHhc=/2122x1415/filters:fill(auto,1)/idli-56a510b63df78cf772862c34.jpg";
-let dosa = "https://i.ytimg.com/vi/CCab5oh0ZOc/maxresdefault.jpg";
-let roti = "https://3.bp.blogspot.com/-TsR1mrtpIic/WTgVxZcV4KI/AAAAAAAACWQ/g626zbTr0EwI_lGHlCRA9VO3SvV1ROe-gCLcB/s1600/loonapix_14968509663081167873.jpg";
-let uppit = "https://i.ytimg.com/vi/r_s15RTEZlk/maxresdefault.jpg";
-let noodles = "https://www.funfoodfrolic.com/wp-content/uploads/2020/09/Garlic-Noodles-Thumbnail.jpg";
-let samosa = "https://curlytales.com/wp-content/uploads/2019/11/Samosa-Recipe.jpg";
-let panipuri = "https://1.bp.blogspot.com/-MjhYOpRFJeM/UbchEdUhDVI/AAAAAAAACcE/HTdJ-EghQlc/s1600/pani+puri.JPG";
-let abc_list = [idli,dosa,roti,uppit,noodles,samosa,panipuri];
 
 function FeaturedPost(props) {
     const { post } = props;
     const state = store.getState();
     const User = state.auth.user;
-    const navigate=useNavigate()
     const addToCart = (id) => {
         console.log("here")
         const post_data = {
@@ -35,7 +22,6 @@ function FeaturedPost(props) {
         };
       axios.post("http://127.0.0.1:8000/cart/", post_data);
       alert('Add to Cart successful');
-        // navigate(`/cart/${User.id}`);
       };
 
   return (
@@ -63,7 +49,6 @@ function FeaturedPost(props) {
             alt={post.imageLabel}
           />
         </Card>
-        
       </CardActionArea>
     </Grid>
   );

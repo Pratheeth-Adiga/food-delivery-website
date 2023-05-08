@@ -13,13 +13,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-let x = Math.floor((Math.random() * 10) + 10);
-let y = Math.floor((Math.random() * 12.6) + 6)
+let deliveryTime = Math.floor((Math.random() * 10) + 10);
+let DeliveryCharges = Math.floor((Math.random() * 12.6) + 6)
 
 export default function NewCartCard() {
   const { id } = useParams();
   const [data, setData] = useState([]);
-  const food = [];
   const fetchData = async () => {
     const response = await axios.get(`http://127.0.0.1:8000/cart1/${id}/`);
     const res = await response.data;
@@ -29,8 +28,7 @@ export default function NewCartCard() {
 
   useEffect(() => {
     fetchData();
-  }, []);
-  const [qty, setQty] = useState(1);
+  });
   const deleteOne = (foodid) => {
     axios.delete(`http://127.0.0.1:8000/cartdeleteItem/${id}/${foodid}/`);
     window.location.reload(false);
@@ -44,7 +42,6 @@ export default function NewCartCard() {
   const checkout = () => {
     navigate(`/checkout/${id}`);
   };
-  const [price, setPrice] = useState(0);
   return (
     <div>
       <CusTop />
@@ -115,13 +112,13 @@ export default function NewCartCard() {
                     .toFixed(2)}
                 </Typography>
                 <Typography variant="body2" pt={1} pl={1}>
-                  Delivery Charges: Rs {y.toFixed(2)}
+                  Delivery Charges: Rs {DeliveryCharges.toFixed(2)}
                 </Typography>
                 <Divider />
                 <Typography variant="body2" pt={1} pl={1}>
                   Total Amount: Rs.
                   {data
-                    .reduce((acc, item) => acc + 1 * item.Price + x, 0)
+                    .reduce((acc, item) => acc + 1 * item.Price + DeliveryCharges/data.length, 0)
                     .toFixed(2)}
                 </Typography>
                 <Grid container justifyContent="flex-end" pt={2}>
@@ -147,7 +144,7 @@ export default function NewCartCard() {
             </Typography>
             <Divider />
             <Typography variant="body1" pl={2} pt={2} pb={2}>
-              Within {x} mins
+              Within {deliveryTime} mins
             </Typography>
           </Paper>
         </Grid>

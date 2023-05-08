@@ -36,7 +36,7 @@ export default function Blog() {
   useEffect(() => {
     fetchData();
     console.log(typeof data);
-  }, []);
+  });
   const [data1, setData1] = useState([]);
   const fetchData1 = async () => {
     const response = await axios.get(
@@ -49,16 +49,7 @@ export default function Blog() {
   useEffect(() => {
     fetchData1();
     console.log(typeof data);
-  }, []);
-  const addToCart = (id) => {
-    const post_data = {
-      Food_Id: id,
-      User_Id: User.id,
-      Quantity: 1,
-    };
-    axios.post("http://127.0.0.1:8000/cart/", post_data);
-    navigate(`/cart/${User.id}`);
-  };
+  });
     const gotoCart = () => {
         navigate(`/cart/${User.id}`);
   };
@@ -116,10 +107,7 @@ export default function Blog() {
           <Grid container spacing={5} sx={{ mt: 3 }}></Grid>
         </main>
       </Container>
-      <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
-      />
+      <Footer/>
     </ThemeProvider>
   );
 }

@@ -49,7 +49,6 @@ export default function UserProfile(props) {
       <Divider />
       <List>
         
-
         <ListItem>
             <ListItemButton>
                 <ListItemIcon>
@@ -75,11 +74,11 @@ export default function UserProfile(props) {
                 <ListItemText primary="My Wallet"/>
             </ListItemButton>
         </ListItem>        
-
       </List>
-      <Divider />
-      <List>
 
+      <Divider />
+      
+      <List>
       <ListItem onClick={navigateAboutUs}>
             <ListItemButton>
                 <ListItemIcon>
@@ -99,7 +98,6 @@ export default function UserProfile(props) {
   const navigateto = () => {
     navigate(`/savecprofile/${id}`)
   }
-  //http://127.0.0.1:8000/getuser/1/
   const [data, setData] = useState([]);
   const fetchData = async () => {
     const response = await axios.get(
@@ -110,11 +108,8 @@ export default function UserProfile(props) {
     setData(res);
   };
   useEffect(() => {
-    
     fetchData();
-    
-  
-  }, []);
+  });
     
   return (
     <Box sx={{ display: 'flex' }}>
@@ -225,9 +220,5 @@ export default function UserProfile(props) {
 }
 
 UserProfile.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };

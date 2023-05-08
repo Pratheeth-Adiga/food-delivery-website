@@ -18,8 +18,6 @@ import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
-const steps = ["Shipping address", "Payment details", "Review your order"];
-
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -43,7 +41,7 @@ export default function Checkout2() {
   const handleBack = () => {
     navigate(`/checkout/${id}`);
   };
-  const [activeStep, setActiveStep] = React.useState(1);
+  const [activeStep] = React.useState(1);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -148,7 +146,6 @@ export default function Checkout2() {
                 sx={{ mt: 3, ml: 1 }}
               >
                 Next
-                {/* {activeStep === steps.length - 1 ? 'Place order' : 'Next'} */}
               </Button>
             </Box>
           </React.Fragment>

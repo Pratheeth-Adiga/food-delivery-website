@@ -1,11 +1,10 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
-import { Avatar, Grid, Button } from "@mui/material";
+import { Avatar, Grid} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -22,7 +21,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Paper, Card, CardContent, TextField } from "@mui/material";
+import { Paper, Card, CardContent} from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -95,10 +94,6 @@ export default function MyOrders(props) {
   const navigate = useNavigate();
   const { id } = useParams();
   let success = 0;
-  const navigateto = () => {
-    navigate(`/savecprofile/${id}`);
-  };
-  //http://127.0.0.1:8000/getuser/1/
   const [data, setData] = useState([]);
   const fetchData = async () => {
     const response = await axios.get(
@@ -110,7 +105,7 @@ export default function MyOrders(props) {
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  });
   for (let i = 0; i < data.length; i++) {
     if (data[i].Status === 2) success += 1;
   }
@@ -186,7 +181,6 @@ export default function MyOrders(props) {
         }}
       >
         <Toolbar />
-        {/* <Button variant="contained" onClick={navigateto}> Edit Profile </Button> */}
         <Typography paragraph pt={1}>
           Welcome to Foody Web,
         </Typography>
@@ -215,12 +209,6 @@ export default function MyOrders(props) {
                   <h3>{data.length-success}</h3>
                 </Typography>
                 <Divider />
-                {/* <Typography variant="body2" pt={1} pl={1}>
-                  Total Amount: Rs.
-                  {data
-                    .reduce((acc, item) => acc + 1 * item.Price, 0)
-                    .toFixed(2)}
-                </Typography> */}
               </CardContent>
             </Card>
           </Paper>
@@ -265,10 +253,7 @@ export default function MyOrders(props) {
                 </Typography>
                 </CardContent>
               </Card>
-                </Grid>
-
-              
-              
+            </Grid> 
             );
           })}
           </Grid>

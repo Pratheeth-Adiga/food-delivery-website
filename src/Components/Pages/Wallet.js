@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -47,8 +46,7 @@ export default function Wallet(props) {
         <Avatar>P</Avatar>
       </Grid>
       <Divider />
-      <List>
-        
+      <List>        
 
         <ListItem onClick={navigateProfile}>
             <ListItemButton>
@@ -96,11 +94,7 @@ export default function Wallet(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
   const navigate = useNavigate()
   const {id} =useParams()
-  const navigateto = () => {
-    navigate(`/savecprofile/${id}`)
-  }
-  //http://127.0.0.1:8000/getuser/1/
-  const [data, setData] = useState([]);
+  const [setData] = useState([]);
   const fetchData = async () => {
     const response = await axios.get(
         `http://127.0.0.1:8000/getuserorder/${id}/`
@@ -111,7 +105,7 @@ export default function Wallet(props) {
   };
   useEffect(() => { 
     fetchData();
-  }, []);
+  });
   
   return (
     <Box sx={{ display: 'flex' }}>
@@ -133,8 +127,8 @@ export default function Wallet(props) {
           >
             <MenuIcon />
           </IconButton>
-                  <Typography variant="h6" noWrap component="div">
-                      My Wallet
+          <Typography variant="h6" noWrap component="div">
+              My Wallet
           </Typography>
         </Toolbar>
       </AppBar>
@@ -174,21 +168,19 @@ export default function Wallet(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        {/* <Button variant="contained" onClick={navigateto}> Edit Profile </Button> */}
         <Typography paragraph pt={1}>
           Welcome to Foody Web, 
-          
-              </Typography>
+        </Typography>
               
         <Typography paragraph>
           This is a page that contains your wallet amount. To make it visible please use a Foody Web Wallet Account
           <h2>Details:</h2>
               </Typography>
               <div>
-                  <Typography paragraph>u
+                <Typography paragraph>
                    <h3> Wallet Amount: Rs 0.00</h3>
-                  </Typography>
-                  </div>
+                </Typography>
+              </div>
       </Box>
     </Box>
   );

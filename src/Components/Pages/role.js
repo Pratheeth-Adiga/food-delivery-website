@@ -6,7 +6,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea, Grid,Paper } from "@mui/material";
-import store from "../../store";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function Role() {
@@ -23,9 +22,7 @@ export default function Role() {
   };
   useEffect(() => {
       fetchData();
-      
-    
-  }, []);
+  });
     const navigate = useNavigate()
   const clickHandler = () => {
     if (data.length === 0)
@@ -33,7 +30,7 @@ export default function Role() {
       navigate(`/restricted`)
     }
     else
-                navigate(`/restaurantpage/${data[0]?.GST_no}`)
+      navigate(`/restaurantpage/${data[0]?.GST_no}`)
       
     };
   
@@ -91,8 +88,6 @@ export default function Role() {
           </Paper>
         </Grid>
       </Grid>
-
-      {/* <h1>hey</h1> */}
     </div>
   );
 }

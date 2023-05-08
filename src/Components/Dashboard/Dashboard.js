@@ -89,10 +89,6 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 export default function Dashboard() {
-  function preventDefault(event) {
-    event.preventDefault();
-  }
-
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -109,7 +105,7 @@ export default function Dashboard() {
   useEffect(() => {
     fetchData();
     console.log(typeof data);
-  }, []);
+  });
   const navigate = useNavigate();
   const checkItems = (oid) => {
     navigate(`/restaurantorders/${id}/${oid}`);
@@ -125,7 +121,7 @@ export default function Dashboard() {
         <AppBar position="absolute" open={open}>
           <Toolbar
             sx={{
-              pr: "24px", // keep right padding when drawer closed
+              pr: "24px",
             }}
           >
             <IconButton
@@ -149,11 +145,6 @@ export default function Dashboard() {
             >
               Your Restaurant Dashboard
             </Typography>
-            {/* <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton> */}
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -191,30 +182,11 @@ export default function Dashboard() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              {/* Chart */}
-              {/* <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  {/* <Chart /> */}
-              {/* </Paper>
-              </Grid> */}
-              {/* Recent Deposits */}
               {data.length === 0 ? (
                 <Grid item xs={12} md={8} lg={3}>
                   <h4>No Pending Orders</h4>
                 </Grid>
               ) : (
-                // <>
-                //   <Grid item xs={12} md={8} lg={3}>
-                //     <h4>You have {data.length} pending orders</h4>
-                //   </Grid>
-
                 <Grid container spacing={3} sx={{ p: 2 }}>
                   {data.map((x) => {
                     return (
@@ -247,18 +219,6 @@ export default function Dashboard() {
                                 Completed
                               </Button>
                             </Grid>
-                            {/* <Typography color="text.secondary" sx={{ flex: 1 }}>
-                              on 15 March, 2019
-                            </Typography>
-                            <div>
-                              <Link
-                                color="primary"
-                                href="#"
-                                onClick={preventDefault}
-                              >
-                                View balance
-                              </Link>
-                            </div> */}
                           </React.Fragment>
                         </Paper>
                       </Grid>
@@ -266,13 +226,6 @@ export default function Dashboard() {
                   })}
                 </Grid>
               )}
-
-              {/* Recent Orders */}
-              {/* <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-                  <Orders />
-                </Paper>
-              </Grid> */}
             </Grid>
             <Copyright sx={{ pt: 4 }} />
           </Container>

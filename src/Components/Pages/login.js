@@ -3,21 +3,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-// import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { FormControlLabel,Checkbox,Link } from '@mui/material';
 import { login } from '../../actions/auth'
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {connect} from 'react-redux'
-import { Navigate } from 'react-router-dom'
-import { checkAuthenticated, load_user } from '../../actions/auth';
 import store from '../../store';
 
 const theme = createTheme();
@@ -41,19 +37,10 @@ const onSubmit = e => {
   const navigate=useNavigate()
 const state = store.getState();
   const User = state.auth.user;
-  // const isAuthenticated1=localStorage.getItem('access')
   if (isAuthenticated) {
     console.log("jee")
     navigate(`/role/${User.id}`)
   }
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     email: data.get('email'),
-  //     password: data.get('password'),
-  //   });
-  // };
 
   return (
     <ThemeProvider theme={theme}>
