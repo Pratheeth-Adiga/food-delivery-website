@@ -138,7 +138,7 @@ export default function UserProfile(props) {
           </Typography>
             </Grid>
             <Grid item xs = {1}>
-              <Link href='/album' underline='none'>
+              <Link href='/browse' underline='none'>
                 <Button variant='contained' color="success">Home</Button>
               </Link>
             </Grid>

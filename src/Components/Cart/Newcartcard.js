@@ -50,7 +50,7 @@ export default function NewCartCard() {
           {data.length === 0 ? (
             <h2>
               Cart is empty :/
-              <a href="/album">Click here to go back</a>
+              <a href="/browse">Click here to go back</a>
             </h2>
           ) : (
             <></>

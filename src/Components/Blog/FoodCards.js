@@ -9,12 +9,11 @@ import { Button } from "@mui/material";
 import store from "../../store";
 import axios from "axios";
 
-function FeaturedPost(props) {
+export default function FoodCards(props) {
     const { post } = props;
     const state = store.getState();
     const User = state.auth.user;
     const addToCart = (id) => {
-        console.log("here")
         const post_data = {
           Food_Id: id,
           User_Id: User.id,
@@ -53,5 +52,3 @@ function FeaturedPost(props) {
     </Grid>
   );
 }
-
-export default FeaturedPost;

@@ -38,7 +38,7 @@ export default function NotRegistered() {
           {'To become a registered user please email us at foodyweb050@gmail.com'}
         </Typography>
               <Typography variant="body1"> </Typography>
-              <Button variant="contained" color="success" href='/album'>
+              <Button variant="contained" color="success" href='/browse'>
                       Browse our restaurants
                     </Button>
       </Container>

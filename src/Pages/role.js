@@ -43,7 +43,7 @@ export default function Role() {
         <Paper elevation={5}>
           <Card
             sx={{ maxWidth: 800 }}
-            onClick={(event) => (window.location.href = `/album`)}
+            onClick={(event) => (window.location.href = `/browse`)}
           >
             <CardActionArea>
               <CardMedia

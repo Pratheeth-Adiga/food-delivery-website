@@ -28,7 +28,7 @@ import Login from './Components/Pages/login';
 import Checkout from './Components/Pages/CheckOutFinal';
 import Role from './Components/Pages/role';
 import RestuarantOrderItems from './Components/Pages/OrderItems';
-import Album from './Components/Pages/Album';
+import Browse from './Components/Pages/Browse';
 import NotRegistered from './Components/Pages/NotRegistered';
 import UserProfile from './Components/Pages/UserProfile';
 import MyOrders from './Components/Pages/MyOrders';
@@ -65,7 +65,7 @@ export default function App() {
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/reset-password" element={<ResetPass />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/album" element={<Album />} />
+          <Route path="/browse" element={<Browse />} />
           <Route path="/restricted" element={<NotRegistered />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/menu/:resid" element={<Blog />} />

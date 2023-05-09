@@ -4,9 +4,8 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import store from "../../store";
-import MainFeaturedPost from "./MainFeaturedPost";
-import FeaturedPost from "./FeaturedPost";
-import Footer from "./Footer";
+import RestaurantBanner from "./RestaurantBanner";
+import FoodCards from "./FoodCards";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -57,9 +56,7 @@ export default function Blog() {
   const mainFeaturedPost = {
     title: data1[0]?.Name,
     description: data1[0]?.Descr,
-    manager: data1[0]?.Mgr_name,
-    image: "https://source.unsplash.com/random",
-    imageText: "main image description",
+    manager: data1[0]?.Mgr_name
   };
  
 
@@ -69,7 +66,7 @@ export default function Blog() {
       <Container maxWidth="lg">
         <React.Fragment>
           <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <Button size="small" href="/album">
+            <Button size="small" href="/browse">
               Go Back
             </Button>
             <Typography
@@ -91,7 +88,7 @@ export default function Blog() {
           ></Toolbar>
         </React.Fragment>
         <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
+          <RestaurantBanner post={mainFeaturedPost} />
           {data.length === 0 ? (
             <h3>This restaurant hasn't uploaded their Menus yet. Come again later</h3>
           ) : (
@@ -100,14 +97,13 @@ export default function Blog() {
           <Grid container spacing={4}>
             {data?.map((x) => (
               <>
-                <FeaturedPost key={x?.id} post={x} />
+                <FoodCards key={x?.id} post={x} />
               </>
             ))}
           </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}></Grid>
         </main>
       </Container>
-      <Footer/>
     </ThemeProvider>
   );
 }

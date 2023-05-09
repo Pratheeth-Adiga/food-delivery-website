@@ -22,7 +22,7 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="/">
         Food Website
       </Link>{" "}
       {new Date().getFullYear()}
@@ -47,7 +47,6 @@ export default function Customer() {
   const { Name, Username, Mobile, Addr } = formData;
 
   const onChange = (e) => {
-    console.log("heloooo");
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 

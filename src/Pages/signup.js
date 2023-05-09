@@ -39,7 +39,7 @@ const SignUp = ({ signup, isAuthenticated }) => {
   };
   
   if (isAuthenticated) {
-    return <Navigate replace to="/album" />;
+    return <Navigate replace to="/browse" />;
   }
 
   

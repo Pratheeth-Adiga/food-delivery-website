@@ -16,7 +16,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="/">
         Foody Web
       </Link>{' '}
       {new Date().getFullYear()}
@@ -27,7 +27,7 @@ function Copyright() {
 
 const theme = createTheme();
 
-export default function Album() {
+export default function Browse() {
   const [data,setData] = useState([])
   const fetchData = async() => {
       const response = await axios.get('http://127.0.0.1:8000/restaurant/')

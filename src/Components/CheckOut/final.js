@@ -10,7 +10,6 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
-import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 function Copyright() {
@@ -27,7 +26,6 @@ function Copyright() {
   );
 }
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
 const theme = createTheme();
 
 export default function Checkout4() {
@@ -35,7 +33,7 @@ export default function Checkout4() {
     const navigate = useNavigate()
     const handleNext = () => {
         axios.delete(`http://127.0.0.1:8000/cartdelete/${id}/`)
-      navigate(`/album`)
+      navigate(`/browse`)
     };
     
   return (

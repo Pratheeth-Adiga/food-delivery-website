@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
-function MainFeaturedPost(props) {
+export default function RestuarantBanner(props) {
   const { post } = props;
 
   return (
@@ -20,7 +20,6 @@ function MainFeaturedPost(props) {
         backgroundImage: `url(http://media.architecturaldigest.com/photos/572a34ffe50e09d42bdfb5e0/master/pass/japanese-restaurants-la-01.jpg)`,
       }}
     >
-      {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
       <Box
         sx={{
           position: 'absolute',
@@ -55,5 +54,3 @@ function MainFeaturedPost(props) {
     </Paper>
   );
 }
-
-export default MainFeaturedPost;

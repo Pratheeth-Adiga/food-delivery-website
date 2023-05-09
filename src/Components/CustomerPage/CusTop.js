@@ -27,7 +27,7 @@ const CusTop = ({ logout }) => {
     <Box>
       <Grid container>
         <Grid item xs={4}>
-          <Link href="/album">
+          <Link href="/browse">
             <img
               src="https://scalebranding.com/wp-content/uploads/2020/03/fun-food-logo.jpg"
               width="60px"

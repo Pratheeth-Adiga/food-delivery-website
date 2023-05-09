@@ -38,7 +38,7 @@ export default function Aboutus() {
           {'Support us by letting us know how you feel at foodyweb050@gmail.com'}
         </Typography>
               <Typography variant="body1"> </Typography>
-              <Button variant="contained" color="success" href='/album'>
+              <Button variant="contained" color="success" href='/browse'>
                       Browse our restaurants
         </Button>
         <Typography variant="body1"> </Typography>
