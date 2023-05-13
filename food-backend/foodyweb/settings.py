@@ -94,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Foody_db',
         'USER': 'postgres',
-        'PASSWORD': 'cybersurfer',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '5432',
     }
