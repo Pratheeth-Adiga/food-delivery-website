@@ -25,3 +25,5 @@ yarn-error.log*
 #backend
 /food-backend/Lib
 
+#react readme
+dummy-readme.md
